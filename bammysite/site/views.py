@@ -126,7 +126,7 @@ def send_newsletter():
 				except smtplib.SMTPException:
 					return redirect(url_for('site.admin'))
 
-	return redirect(url_for('site.admin'))
+	return current_app.logger.info('Sent mail successfully')
 
 @sitemod.route('/admin_signup',methods=['GET','POST'])
 def admin_signup():
