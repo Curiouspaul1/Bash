@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./img/bammyLogo_register.ico">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/register_style.css">
+    <title>Bammy School | Registration</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a id="logo" href="index.html"><img src="./img/bammyLogo_register.jpg" alt="Home"></a>
+            <ul >
+                <a href="./about.html"><li>About Us</li></a>
+                <a><li>Portal</li></a>
+                <a><li>Events</li></a>
+                <a><li>Gallery</li></a>
+            </ul>
+            <div class="hidden-menu menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div id="mask"></div>
+        <div id="mobile-nav">
+            <ul>
+                <a id="back-btn"><li>Back to page</li></a>
+                <a><li>About Us</li></a>
+                <a><li>Portal</li></a>
+                <a><li>Events</li></a>
+                <a><li>Gallery</li></a>
+            </ul>
+        </div>
+    </header>
+    <main >
+        <section class="container">
+            <h3 class="title">Registration Form</h3>
+            <form method="GET" class="student-info" action="application">
+                <div class="student-data">
+                    <h4 class="title__subtitle">Student Data</h4>
+                    <hr class="underline">
+                    <div class="student-input">
+                        <label for="s_name">Full Name:</label>
+                        <input type="text" name="s_name" id="s_name" required>
+                        <p class="subtitle"><em>(start with surname)</em></p>
+                    </div>
+                    <div class="student-input">
+                        <label for="dob">Date of birth:</label>
+                        <input type="date" name="dob" id="dob" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="sex">Gender:</label><br>
+                        <input type="radio" name="sex" id="sex" value="male" required>Male<br>
+                        <input type="radio" name="sex" id="sex" value="female" required>Female
+                    </div>
+                    <div class="student-input">
+                        <label for="bg">Blood Group:</label>
+                        <input type="text" name="bg" id="bg" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="gen">Genotype:</label>
+                        <input type="text" name="gen" id="gen" required>
+                    </div> 
+                    <div class="student-input">
+                        <label for="ail">Does student have any ailment?</label>
+                        <input type="radio" name="ail" value="yes" id="yes_radio" required>Yes
+                        <input type="radio" name="ail" value="no" id="no_radio" required>No<br>
+                        <div class="ail-list" id="defects_list">
+                            <input type="checkbox" name="ail" value="eye-defects" class="ail">Eye defects<br>
+                            <input type="checkbox" name="ail" value="ear-defects" class="ail">Ear defects<br>
+                            <input type="checkbox" name="ail" value="sickle-cell" class="ail">Sickle Cell<br>
+                            <label for="ail">Others:</label>
+                            <input type="text" name="ail" id="other">
+                        </div>
+                    </div>
+                    <div class="student-input">
+                        <label for="bp">Birth place:</label>
+                        <input type="text" name="bp" id="bp" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="state">State of Origin:</label>
+                        <input type="text" name="state" id="state" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="lga">LGA:</label>
+                        <input type="text" name="lga" id="lga" required>
+                    </div>   
+                    <div class="student-input">
+                        <label for="school">Previous School:</label>
+                        <input type="text" name="school" id="school" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="school_address">Address of Previous School:</label>
+                        <input type="text" name="school_address" id="school_address" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="class_">Class in Previous School:</label>
+                        <input type="text" name="class_" id="class_" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="year">Year of application:</label>
+                        <input type="text" name="year" id="year" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="number-of-siblings">Number of Siblings in the school:</label>
+                        <input type="text" name="number-of-siblings" id="number-of-siblings">
+                        <p class="subtitle"><em>(Enter 0 if none)</em></p>
+                    </div>
+
+                    <div class="siblings"></div>
+                </div>
+
+                <div class="parent-data"> 
+                    <h3 class="title__subtitle">Parent Data</h3>
+                    <hr class="underline">
+                    <div class="parent-input">
+                        <label for="pname">Full Name:</label>
+                        <input type="text" name="pname" id="pname" required>
+                    </div>
+                    <div class="parent-input">
+                        <label for="occupation">Occupation:</label>
+                        <input type="text" name="occupation" id="occupation" required>
+                    </div>
+                    <div class="parent-input">
+                        <label for="raddress">Residential Address:</label>
+                        <input type="text" name="raddress" id="raddress" required>
+                    </div>
+                    <div class="parent-input">
+                        <label for="oaddress">Office Address:</label>
+                        <input type="text" name="oaddress" id="oaddress">
+                    </div>
+                    <div class="parent-input">
+                        <label for="tel">Mobile Number:</label>
+                        <input type="text" name="tel" id="tel" required>
+                    </div>
+                    <div class="parent-input">
+                        <label for="Etel">Emergency Mobile Number:</label>
+                        <input type="text" name="Etel" id="Etel" required>
+                    </div>
+                    <div class="parent-input">
+                        <label for="pemail">E-mail:</label>
+                        <input type="email" name="pemail" id="pemail" required>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-submit-form" value="submit">   
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; Bammy School 2019</p><br>
+        <p>bammycollege@gmail.com</p><br>
+        <p>+234705644176</p><br>
+    </footer>
+    <script src="./script/register_app.js"></script>
+    <script src="./script/studentsData.js"></script>
+</body>
+</html>

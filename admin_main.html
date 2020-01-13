@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/register_style.css">
+    <link rel="stylesheet" href="./css/admin_style.css">
+    <link rel="shortcut icon" href="/img/bammyLogo_register.ico">
+    <script src="/ckeditor/ckeditor.js"></script>
+    <title>Bammy School | BIMS</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a id="logo" href="index.html"><img src="./img/bammyLogo_register.jpg" alt="Home"></a>
+            <ul >
+                <a href="index.html"><li>Home</li></a>
+                <a><li>About Us</li></a>
+                <a><li>Portal</li></a>
+                <a class="logoutBtn"><li>Logout</li></a>
+            </ul>
+             <div class="hidden-menu menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div id="mask"></div>
+        <div id="mobile-nav">
+            <ul>
+                <a id="back-btn"><li>Back to page</li></a>
+                <a><li>About Us</li></a>
+                <a><li>Portal</li></a>
+                <a><li>Events</li></a>
+                <a><li>Gallery</li></a>
+            </ul>
+        </div>
+        </nav>
+        <!-- <div id="welcome">
+            <p>Welcome, <span id="username"></span></p>
+        </div> -->
+
+        <div id="confirm-logout">
+            <p>Are you sure?</p>
+            <ul>
+                <a href="admin_login.html" id="yes_logout"><li>Yes</li></a>
+                <a id="no_logout"><li>No</li></a>
+            </ul>
+        </div>
+        <div id="mask"></div>
+        <div id="mobile-nav">
+            <ul>
+                <a id="back-btn"><li>Back to page</li></a>
+                <a><li>About Us</li></a>
+                <a><li>Portal</li></a>
+                <a class="logoutBtn"><li>Logout</li></a>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="new-story_section">
+            <h3 id="new-story__header">Create new story</h3>
+            <hr class="underline">
+            <form id="new-story">
+                <label for="new-story__title">Title of story: </label>
+                <input type="text" name="new-story__title" id="new-story__title" placeholder="...">
+                <div class="new-story__input-images">
+                    <div class="new-story__input-image">
+                        <input type="file" accept="image/*" name="new-story__photo" class="new-story__photo">
+                        <button class="deleteImage">&#10060;</button><br>
+                    </div>
+                </div><br>
+                <a id="add-photo">Add more photos</a>
+                <textarea class="ckeditor" name="story-info" id="story-info" placeholder="Enter Text Here..." form="new-story" cols="40"></textarea>
+                <input type="submit" class="btn btn-submit-story" value="Submit story">
+            </form>
+            <div class="admin-alert"></div>
+        </section>
+        <section class="compose-newsletter_section">
+            <h3 id="newsletter__header">New Newsletter</h3>
+            <hr class="underline">
+            <form id="compose-newsletter" action="">
+                <label for="newsletter__title">Title of Newsletter: </label>
+                <input type="text" name="newsletter__title" id="newsletter__title" placeholder="...">
+                <textarea class="ckeditor" id="newsletter-content" placeholder="Details of Newsletter" form="compose-newsletter"></textarea>
+                <input type="submit" class="btn btn-send-newsletter" value="Send Newsletter">
+            </form>
+            <div class="admin-alert"></div>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; Bammy School 2019</p><br>
+        <p>bammycollege@gmail.com</p><br>
+        <p>+234705644176</p><br>
+    </footer>
+    
+    <script src="./script/adminData.js"></script>
+    <script src="./script/admin.js"></script>
+    <script src="./script/register_app.js"></script>
+</body>
+</html>

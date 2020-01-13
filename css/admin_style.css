@@ -1,0 +1,329 @@
+/*Login Page Starts*/
+body{
+    font-family: 'Poppins', sans-serif;
+    background: rgb(23, 94, 20) !important;
+}
+
+main{
+    padding-top: 84px;
+    background: rgb(23, 94, 20);
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top:0.5rem ;
+    background: white; 
+}
+
+#admin-logo{
+    width: 50%;
+    height: 30vh;
+    flex-direction: column;
+    margin: auto;
+}
+
+#admin-login{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#admin-text{
+    padding: 0.5rem;
+    text-transform: uppercase;
+    margin: auto;
+    text-align: center;
+    color: black;
+}
+.admin-input{
+    cursor: pointer;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    font-size: 20px;
+    width: 95%;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid rgba(30, 32, 30, 0.877);
+    background: none;
+}
+
+
+.admin-input:focus{
+    background: white;
+    color: #679436;
+    border-bottom: 2px solid #679436;
+    transition: all 0.3s ease-in;
+}
+
+#remember{
+    margin: 0.5rem auto;
+}
+
+#remember-me-text
+{
+    display: inline-block;
+    margin: auto;
+    color: #679436;
+}
+
+.btn{
+    left: 0;
+}
+
+#admin-forgot-password{
+    cursor: pointer;
+    text-decoration: none;
+    color: #54772e;
+    margin: 1rem;
+    text-align: right;
+}
+/*Login Page Ends*/
+
+
+
+
+/*Homepage for the BIMS*/
+.new-story_section{
+    background: #54772e;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-top: 1.5rem;
+    color: white;
+}
+
+#new-story__header{
+    text-align: center;
+}
+
+#new-story{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 850px;
+    margin: 1rem auto;
+    box-shadow: 0 0 5px #34383a;
+    padding: 1rem;
+}
+
+#new-story__title{
+    padding: 1rem;
+    margin: 0.5rem;
+    background: none;
+    font-size: 20px;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid grey;
+    transition: all 0.3s ease-in-out;
+}
+
+#new-story__title:focus{
+    padding: 1rem;
+    margin: 0.5rem;
+    background: white;
+    border-bottom: 2px solid #679436;
+}
+
+.new-story__photo{
+    margin-bottom: 0;
+    background: #54772e;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    width: 80%;
+}
+
+.new-story__input-image{
+    display: inline-block;
+    background: #54772e;
+    width: 100%;
+}
+
+.deleteImage{
+    cursor: pointer;
+    background: none;
+    text-decoration: none;
+    border: none;
+}
+
+.new-story__input-images{
+    margin-bottom: 1rem;
+}
+
+#add-photo{
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    width: 60%;
+}
+
+#add-photo:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+#story-info{
+    margin: 0px;
+    height: 50vh;
+    font-size: 20px;
+}
+
+.compose-newsletter_section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-top: 1.5rem;
+    color: #54772e;
+    background: white;
+}
+
+#compose-newsletter{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 850px;
+    margin: 1rem auto;
+    box-shadow: 0 0 5px #34383a;
+    padding: 1rem;
+
+}
+
+#newsletter__header{
+    text-align: center;
+    margin: auto;
+}
+
+#newsletter__title{
+    padding: 1rem;
+    margin: 0.5rem;
+    background: none;
+    font-size: 20px;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid grey;
+    transition: all 0.3s ease-in-out;
+}
+
+#newsletter__title:focus{
+    background: #54772e;
+}
+
+#newsletter-content{
+    margin: 0px;
+    height: 50vh;
+    font-size: 20px;
+}
+
+#confirm-logout{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    background: white;
+    color: #54772e;
+    margin: auto;
+    padding: 1.1rem;
+    box-shadow: 0 0 10px #34383a;
+    width: 50%;
+    max-width: 400px;
+    z-index: 50;
+}
+
+#confirm-logout ul{
+    text-align: center;
+    margin: 2rem auto;
+}
+
+#confirm-logout li{
+    display: inline-block;
+}
+
+#confirm-logout a{
+    background: #54772e;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    margin: 0.1rem;
+    cursor: pointer;
+}
+
+#confirm-logout a:hover{
+    background: #679436;
+    color: white;
+}
+
+footer{
+    text-align: center;
+    padding: 1rem;
+    color: #e7e5e5;
+    background: rgba(0, 0, 0, 0.774);
+}
+
+.hidden-menu span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #679436;
+  border-radius: 3px;  
+  transform-origin: 4px 0px; 
+}
+
+.hidden-menu{
+      float: right;
+      margin-top: 15px;
+      display: none;
+
+}
+
+/*Media queries*/
+@media(min-width:45rem){
+
+    #admin-logo{
+        width: 25%;
+        height: 30vh;
+    }
+
+    .admin-input{
+        font-size: 25px;
+        width: 70%;;
+    }
+
+    #new-story__title{
+        width: 67%;
+    }
+
+    #newsletter__title{
+        width: 67%;
+    }
+
+    #add-photo{
+        width: 30%;
+    }
+
+    #confirm-logout{
+        padding: 2rem;
+        width: 60%;
+    }
+
+    #confirm-logout a{
+        padding: 1rem 1.7rem;
+        margin: 1.2rem;
+    }
+
+}
+
+@media(max-width:640px){
+     .navbar{
+        height: 90px;
+    }
+    .hidden-menu{
+        display: block;
+        cursor: pointer;
+    }
+}
