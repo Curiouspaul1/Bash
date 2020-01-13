@@ -13,6 +13,7 @@
 </head>
 <body>
     <header>
+    	<p id="mail-msg">{{msg}}</p>
         <nav class="navbar">
             <a id="logo" href="index"><img src="{{url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home"></a>
             <ul >
@@ -48,7 +49,6 @@
         </div>
     </header>
     <main>
-    	<p id="mail-msg">{{msg}}</p>
         <section class="new-story_section">
             <h3 id="new-story__header">Create new story</h3>
             <hr class="underline">
