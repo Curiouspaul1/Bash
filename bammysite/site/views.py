@@ -97,7 +97,9 @@ def admin_login():
 @sitemod.route('/admin')
 def admin():
 	if 'user' in session:
-		return render_template('admin_main.html')
+		if 'mail_msg':
+			msg = session['mail_msg']
+		return render_template('admin_main.html',msg=msg)
 	return render_template('admin_login.html')
 
 @sitemod.route('/admin_logout')
@@ -125,8 +127,9 @@ def send_newsletter():
 					conn.send(msg)
 				except smtplib.SMTPException:
 					return redirect(url_for('site.admin'))
+		session['mail_msg'] = 'Mail sent successfully'
 
-	return current_app.logger.info('Sent mail successfully')
+	return redirect(url_for('site.admin'))
 
 @sitemod.route('/admin_signup',methods=['GET','POST'])
 def admin_signup():
