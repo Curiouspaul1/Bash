@@ -97,9 +97,13 @@ def admin_login():
 @sitemod.route('/admin')
 def admin():
 	if 'user' in session:
-		if 'mail_msg':
+		if 'mail_msg' in session:
 			msg = session['mail_msg']
-		return render_template('admin_main.html',msg=msg)
+			current_app.logger.info(msg)
+			return render_template('admin_main.html',msg=msg)
+		else:
+			return render_template('admin_main.html')
+
 	return render_template('admin_login.html')
 
 @sitemod.route('/admin_logout')

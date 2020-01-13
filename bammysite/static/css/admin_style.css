@@ -264,6 +264,14 @@ footer{
     height: 25vh;
 }
 
+#mail-msg {
+    width: 100vw;
+    padding: 10px;
+    background: #f3f3f3;
+    font-size:2em;
+    color: #679436;
+}
+
 
 /*Media queries*/
 @media(min-width:45rem){
