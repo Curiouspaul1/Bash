@@ -1,0 +1,10 @@
+.news-main{
+    display: flex;
+    width: 100%;
+}
+
+.news-image,
+.news-content{
+    flex-wrap: wrap;
+    flex-flow: row;
+}
