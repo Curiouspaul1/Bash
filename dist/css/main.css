@@ -307,6 +307,23 @@ body {
     display: none;
 }
 
+#view-more-link{
+    text-align: center;
+    margin: 0.9rem auto;
+}
+
+#view-more-link a{
+    background-color: #679436;
+    color: #f3f3f3;
+    text-decoration: none;
+    padding: 0.8rem;
+}
+
+#view-more-link a:hover{
+    background-color: #435e26;
+}
+
+
 /* Footer */
 
 
