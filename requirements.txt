@@ -28,6 +28,7 @@ marshmallow-sqlalchemy==0.21.0
 paystack==1.5.0
 python-dateutil==2.8.1
 python-editor==1.0.4
+psycopg2==2.8.4
 requests==2.22.0
 rsa==4.0
 simplejson==3.17.0
