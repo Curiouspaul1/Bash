@@ -1,13 +1,12 @@
 from bammysite.site import sitemod
-from flask import flash,current_app, render_template, url_for, request,g,redirect,flash,session,json
+from flask import flash,current_app, jsonify, render_template, url_for, request,g,redirect,flash,session,json
 from bammysite import db,ma,mail
 from bammysite.models import  Parent,Student,Siblings,subscriber,parent_schema
-from bammysite.models import parents_schema,student_schema,students_schema,sibling_schema,siblings_schema,News,Admin
+from bammysite.models import parents_schema,student_schema,students_schema,sibling_schema,siblings_schema,News,Admin,news_schema,multinews_schema
 from flask_mail import Message
+from bammysite.uploads import images
 import os
 import smtplib
-
-#from flask import current_app
 
 # check that current users have a session
 @sitemod.before_request
@@ -96,13 +95,15 @@ def admin_login():
 
 @sitemod.route('/admin')
 def admin():
+	from .forms import NewsForm
+	form = NewsForm()
 	if 'user' in session:
 		if 'mail_msg' in session:
 			msg = session['mail_msg']
-			return render_template('admin_main.html',msg=msg)
+			return render_template('admin_main.html',msg=msg,form=form)
 		else:
-			return render_template('admin_main.html')
-	return render_template('admin_login.html')
+			return render_template('admin_main.html',form=form)
+	return render_template('admin_login.html',form=form)
 
 @sitemod.route('/admin_logout')
 def admin_logout():
@@ -172,14 +173,19 @@ def news_signup():
 	return render_template('index.html')
 
 
-@sitemod.route('/add_news')
+@sitemod.route('/add_news',methods=['GET','POST'])
 def add_news():
+	from .forms import NewsForm
+	form = NewsForm()
 	if request.method == 'POST':
 		headline = request.form['news_headline']
 		info = request.form['story-info']
-		image = request.files['news_photo']
+		#image = request.files['news_photo']
+		filename = images.save(form.image.data)
 
-		news = News(title=headline,body=info,img_data=image.read())
+		news = News(title=headline,body=info,img_data=filename)
+
+		#print(filename)
 
 		db.session.add(news)
 		db.session.commit()
@@ -187,9 +193,18 @@ def add_news():
 		news = News.query.filter_by(title=headline).first()
 		if news != None:
 			msg = 'News created successfully!'
+			return render_template('admin_main.html',msg=msg,form=form)
 
-	return render_template('admin_main.html')
+	return render_template('admin_main.html',form=form)
+
+@sitemod.route('/news')
+def news():
+	all_news = News.query.all()
+	return jsonify(multinews_schema.dump(all_news),)
 
 @sitemod.route('/about')
 def about():
 	return render_template('about.html')
+'''
+@sitemod.route('/pay-checkout')
+def pay-checkout():'''

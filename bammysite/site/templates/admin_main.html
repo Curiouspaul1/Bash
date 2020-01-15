@@ -52,12 +52,14 @@
         <section class="new-story_section">
             <h3 id="new-story__header">Create new story</h3>
             <hr class="underline">
-            <form id="new-story" action="add_news">
+            <form id="new-story" action="add_news" method="POST" enctype="multipart/form-data">
                 <label for="new-story__title">Title of story: </label>
                 <input type="text" name="news_headline" id="new-story__title" placeholder="...">
                 <div class="new-story__input-images">
                     <div class="new-story__input-image">
-                        <input type="file" accept="image/*" name="news_photo" class="new-story__photo">
+                        <!--<input type="file" accept="image/*" name="news_photo" class="new-story__photo">-->
+                        {{form.csrf}}
+                        {{form.image(class_='new-story__photo')}}
                         <button class="deleteImage">&#10060;</button><br>
                     </div>
                 </div><br>
@@ -86,8 +88,8 @@
         <p>+234705644176</p><br>
     </footer>
     
-    <script src="{{url_for('static',filename='script/adminData.js')}}"></script>
-    <script src="{{url_for('static',filename='script/admin.js')}}"></script>
+    <!--<script src="{{url_for('static',filename='script/adminData.js')}}"></script>
+    <script src="{{url_for('static',filename='script/admin.js')}}"></script>-->
 </body>
 </html>
 

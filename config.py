@@ -10,6 +10,8 @@ class Config:
 	MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 	MAIL_DEFAULT_SENDER = 'Bammy COllege'
+	UPLOADED_FILES_DEST = 'uploads/images'
+	UPLOADS_DEFAULT_DEST = 'uploads/images'
 
 	@staticmethod
 	def init_app(app):

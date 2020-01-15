@@ -65,7 +65,7 @@ class News(db.Model):
 	title = db.Column(db.String(100))
 	body = db.Column(db.String(100))
 	date_created = db.Column(db.DateTime,default=datetime.utcnow)
-	img_data = db.Column(db.LargeBinary)
+	img_data = db.Column(db.Text())
 
 class Admin(db.Model):
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
@@ -95,3 +95,11 @@ class SiblingSchema(ma.Schema):
 
 sibling_schema = SiblingSchema()
 siblings_schema = SiblingSchema(many=True)
+
+# News' Serialization schema
+class NewsSchema(ma.Schema):
+	class Meta:
+		fields = ('id','title','body','date_created','img_data')
+
+news_schema = NewsSchema()
+multinews_schema = NewsSchema(many=True)
