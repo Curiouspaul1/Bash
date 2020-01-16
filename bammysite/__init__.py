@@ -7,6 +7,7 @@ from flask_mail import Mail,Message
 from flask_script import Manager
 from flask_ckeditor import CKEditor
 from flask_uploads import configure_uploads
+from flask_cors import CORS
 from config import config
 import os
 
@@ -25,6 +26,7 @@ def __call__(config_name):
     ma.init_app(app)
     mail.init_app(app)
     ckeditor.init_app(app)
+    CORS(app)
 
     # configure image set with app
     configure_uploads(app,images)

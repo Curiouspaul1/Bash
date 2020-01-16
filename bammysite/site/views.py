@@ -198,9 +198,10 @@ def add_news():
 	return render_template('admin_main.html',form=form)
 
 @sitemod.route('/news')
+@cross_origin()
 def news():
 	all_news = News.query.all()
-	return jsonify(multinews_schema.dump(all_news),)
+	return jsonify(multinews_schema.dump(all_news))
 
 @sitemod.route('/about')
 def about():
