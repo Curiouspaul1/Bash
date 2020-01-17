@@ -4,6 +4,7 @@ from bammysite import db,ma,mail
 from bammysite.models import  Parent,Student,Siblings,subscriber,parent_schema
 from bammysite.models import parents_schema,student_schema,students_schema,sibling_schema,siblings_schema,News,Admin,news_schema,multinews_schema
 from flask_mail import Message
+from flask_cors import cross_origin
 from bammysite.uploads import images
 import os
 import smtplib
