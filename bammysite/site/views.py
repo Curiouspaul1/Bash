@@ -97,8 +97,8 @@ def admin_login():
 @sitemod.route('/admin')
 def admin():
 	from .forms import NewsForm
-	form = NewsForm()
 	if 'user' in session:
+		form = NewsForm()
 		if 'mail_msg' in session:
 			msg = session['mail_msg']
 			return render_template('admin_main.html',msg=msg,form=form)
