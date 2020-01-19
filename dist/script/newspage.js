@@ -1,71 +1,85 @@
-var current_page = 1;
-var records_per_page = 5;
+let current_page = 1;
+let records_per_page = 5;
+const mainNewsContainer = document.querySelector('.news-section');
 
-var objJson = [
-    { adName: "AdName 1"},
-    { adName: "AdName 2"},
-    { adName: "AdName 3"},
-    { adName: "AdName 4"},
-    { adName: "AdName 5"},
-    { adName: "AdName 6"},
-    { adName: "AdName 7"},
-    { adName: "AdName 8"},
-    { adName: "AdName 9"},
-    { adName: "AdName 10"}
-]; // Can be obtained from another source, such as your objJson variable
 
-function prevPage()
-{
-    if (current_page > 1) {
-        current_page--;
-        changePage(current_page);
-    }
-}
-
-function nextPage()
-{
-    if (current_page < numPages()) {
-        current_page++;
-        changePage(current_page);
-    }
-}
+fetch('http://bammysite.herokuapp.com/news')
+.then((req) => {
+   return req.json()
+})
+.then((res)=>{
+    console.log(res);
+    res.forEach(article => {
+        let newsContainer = document.createElement('div');
+        newsContainer.className = 'news-main';
+        let newsImg = document.createElement('img');
+        newsImg.src = article.img_data;
+        newsImg.className = 'news-img';
+        let newsBody =document.createElement('div');
+        newsBody.innerHTML = article.body;
+        newsBody.className = 'news-content';
+        // newsTitle = article.title;
+        // newsDate = article.date_created;
+        newsContainer.appendChild(newsImg);
+        newsContainer.appendChild(newsBody);
+        mainNewsContainer.appendChild(newsContainer);
+    });
     
-function changePage(page)
-{
-    var btn_next = document.getElementById("btn_next");
-    var btn_prev = document.getElementById("btn_prev");
-    var listing_table = document.getElementById("listingTable");
-    var page_span = document.getElementById("page");
+})
+
+
+// function prevPage()
+// {
+//     if (current_page > 1) {
+//         current_page--;
+//         changePage(current_page);
+//     }
+// }
+
+// function nextPage()
+// {
+//     if (current_page < numPages()) {
+//         current_page++;
+//         changePage(current_page);
+//     }
+// }
+    
+// function changePage(page)
+// {
+//     var btn_next = document.getElementById("btn_next");
+//     var btn_prev = document.getElementById("btn_prev");
+//     var listing_table = document.getElementById("listingTable");
+//     var page_span = document.getElementById("page");
  
-    // Validate page
-    if (page < 1) page = 1;
-    if (page > numPages()) page = numPages();
+//     // Validate page
+//     if (page < 1) page = 1;
+//     if (page > numPages()) page = numPages();
 
-    listing_table.innerHTML = "";
+//     listing_table.innerHTML = "";
 
-    for (var i = (page-1) * records_per_page; i < (page * records_per_page) && i < objJson.length; i++) {
-        listing_table.innerHTML += objJson[i].adName + "<br>";
-    }
-    page_span.innerHTML = page + "/" + numPages();
+//     for (var i = (page-1) * records_per_page; i < (page * records_per_page) && i < objJson.length; i++) {
+//         listing_table.innerHTML += objJson[i].adName + "<br>";
+//     }
+//     page_span.innerHTML = page + "/" + numPages();
 
-    if (page == 1) {
-        btn_prev.style.visibility = "hidden";
-    } else {
-        btn_prev.style.visibility = "visible";
-    }
+//     if (page == 1) {
+//         btn_prev.style.visibility = "hidden";
+//     } else {
+//         btn_prev.style.visibility = "visible";
+//     }
 
-    if (page == numPages()) {
-        btn_next.style.visibility = "hidden";
-    } else {
-        btn_next.style.visibility = "visible";
-    }
-}
+//     if (page == numPages()) {
+//         btn_next.style.visibility = "hidden";
+//     } else {
+//         btn_next.style.visibility = "visible";
+//     }
+// }
 
-function numPages()
-{
-    return Math.ceil(objJson.length / records_per_page);
-}
+// function numPages()
+// {
+//     return Math.ceil(objJson.length / records_per_page);
+// }
 
-window.onload = function() {
-    changePage(1);
-};
+// window.onload = function() {
+//     changePage(1);
+// };

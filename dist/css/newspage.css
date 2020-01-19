@@ -1,10 +1,72 @@
-.news-main{
-    display: flex;
-    width: 100%;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+*{
+    margin: 0;
+}
+body,html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
 }
 
-.news-image,
-.news-content{
-    flex-wrap: wrap;
-    flex-flow: row;
+.sub-nav-bar{
+    top: 0;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.mobile-nav{
+    top: 0;
+}
+
+.news-section{
+    margin-top:5.5rem;
+}
+.news-main{
+    display: block;
+    background-color: #00ff0059;
+    width: 95%;
+    margin: 0.5rem auto;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.news-main img{
+    width: 80%;
+    max-width: 400px;
+    margin: 0.8rem;
+    border-radius: 15px;
+}
+
+.news-content p{
+    font-family: 'Roboto', sans-serif;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+#listingTable{
+    margin: 1rem auto;
+    text-align: center;
+}
+
+#btn_prev,
+#btn_next{
+    padding: 0.5rem;
+    color: black;
+    text-decoration: none;
+    background-color: #00ff0059;
+}
+
+
+
+@media(min-width:47rem){
+    .news-main{
+        display: flex;
+        width: 95%;
+    }
+
+    .news-img,
+    .news-content p{
+        flex-wrap: wrap;
+        flex-flow: row;
+    }
 }
