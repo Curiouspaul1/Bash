@@ -3,7 +3,7 @@ let records_per_page = 5;
 const mainNewsContainer = document.querySelector('.news-section');
 
 
-fetch('http://bammysite.herokuapp.com/news')
+fetch('https://bammysite.herokuapp.com/news')
 .then((req) => {
    return req.json()
 })
