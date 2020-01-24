@@ -207,6 +207,8 @@ def news():
 @sitemod.route('/about')
 def about():
 	return render_template('about.html')
-'''
-@sitemod.route('/pay-checkout')
-def pay-checkout():'''
+
+
+"""@sitemod.route('/pay-checkout')
+def pay-checkout():
+	"""
