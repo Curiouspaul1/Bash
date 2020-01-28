@@ -8,6 +8,7 @@ from flask_script import Manager
 from flask_ckeditor import CKEditor
 from flask_uploads import configure_uploads
 from flask_cors import CORS
+from flask_jsglue import JSGlue
 from config import config
 import os
 
@@ -16,6 +17,7 @@ ma = Marshmallow()
 mail = Mail()
 manager = Manager()
 ckeditor = CKEditor()
+jsglue = JSGlue()
 
 def __call__(config_name):
     app = Flask(__name__)
@@ -26,10 +28,14 @@ def __call__(config_name):
     ma.init_app(app)
     mail.init_app(app)
     ckeditor.init_app(app)
+    jsglue.init_app(app)
     CORS(app)
 
     # configure image set with app
     configure_uploads(app,images)
+
+    app.add_url_rule('/uploads/<path:filename>', endpoint='uploads',
+                 view_func=app.send_static_file)
 
     # register blueprint
     from bammysite.site import sitemod
