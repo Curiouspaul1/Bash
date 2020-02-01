@@ -34,9 +34,6 @@ def __call__(config_name):
     # configure image set with app
     configure_uploads(app,images)
 
-    app.add_url_rule('/uploads/<path:filename>', endpoint='uploads',
-                 view_func=app.send_static_file)
-
     # register blueprint
     from bammysite.site import sitemod
 

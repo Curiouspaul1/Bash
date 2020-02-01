@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/newspage.css">
-    <link rel="shortcut icon" href="./img/BAMMY LOGO (1).ico">
-    <title>Bammy School | Newspage</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/newspage.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='img/BAMMY LOGO (1).ico')}}">
+    <title>Bammy School | {{title}}</title>
 </head>
 <body>
     <header>
         <div class="mobile-nav">
             <a id="logo2" href="index.html">
-                <img src="./img/bammyLogo_register.jpg" alt="Home">
+                <img src="{{ url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home">
             </a>
             <ul>
                 <li class="active">HOME</li>
@@ -30,7 +30,7 @@
             <nav class="sub-nav-bar">
                 <ul>
                     <a id="logo" href="index.html">
-                        <li><img src="./img/bammyLogo_register.jpg" alt="Home"></li>
+                        <li><img src="{{url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home"></li>
                     </a>
                 </ul>
                 <ul class="menubar">

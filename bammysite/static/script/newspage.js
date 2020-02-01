@@ -3,7 +3,7 @@ let records_per_page = 5;
 const mainNewsContainer = document.querySelector('.news-section');
 
 
-fetch('https://bammysite.herokuapp.com/news')
+fetch('/news')
 .then((req) => {
    return req.json()
 })
@@ -20,7 +20,7 @@ fetch('https://bammysite.herokuapp.com/news')
         let dateObj = new Date(article.date_created);
         newsDate.innerHTML = `${dateObj.toLocaleDateString()}`;
         let newsImg = document.createElement('img');
-        newsImg.src = Flask.url_for("uploads", {"filename": `images/images/${article.img_data}`});
+        newsImg.src = Flask.url_for('uploads', {'filename': `${article.img_data}`});
         newsImg.className = 'news-img';
         let newsContent = document.createElement('div');
         newsContent.innerHTML = article.body;

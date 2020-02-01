@@ -5,6 +5,7 @@ from bammysite.models import  Parent,Student,Siblings,subscriber,parent_schema
 from bammysite.models import parents_schema,student_schema,students_schema,sibling_schema,siblings_schema,News,Admin,news_schema,multinews_schema
 from flask_mail import Message
 from flask_cors import cross_origin
+from flask import current_app
 from bammysite.uploads import images
 import os
 import smtplib
@@ -207,6 +208,16 @@ def news():
 @sitemod.route('/about')
 def about():
 	return render_template('about.html')
+
+@sitemod.route('/newspage')
+def newspage():
+	title='Events'
+	return render_template('newspage.html',title=title)
+
+@sitemod.route('/uploads/<path:filename>')
+def uploads(filename):
+	from flask import current_app
+	return current_app.send_static_file(filename)
 
 
 """@sitemod.route('/pay-checkout')

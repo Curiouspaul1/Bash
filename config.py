@@ -1,4 +1,5 @@
 import os
+from flask import current_app,url_for
 
 dbpassword = os.getenv('dbpassword')
 
@@ -10,8 +11,8 @@ class Config:
 	MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 	MAIL_DEFAULT_SENDER = 'Bammy COllege'
-	UPLOADED_FILES_DEST = 'uploads/images'
-	UPLOADS_DEFAULT_DEST = 'uploads/images'
+	UPLOADED_IMAGES_DEST = 'uploads'
+	#UPLOADED_IMAGES_URL = "localhost:5000/images"
 
 	@staticmethod
 	def init_app(app):
@@ -36,4 +37,5 @@ config = {
 
     'default' : DevelopmentConfig
 }
+
 
