@@ -10,8 +10,6 @@ const defectsList = document.getElementById('defects_list');
 
 const mobileNav = document.getElementById('mobile-nav');
 
-const mask = document.getElementById('mask');
-
 const backBtn = document.getElementById('back-btn');
 
 const hiddenNav = document.querySelector('.hidden-menu');
@@ -57,18 +55,18 @@ numberOfSiblings.addEventListener('change', () => {
 });
 
 
-hiddenNav.addEventListener('click', () => {
-    mobileNav.style.display= 'block';
-    mask.style.display = 'block';
-});
+// hiddenNav.addEventListener('click', () => {
+//     mobileNav.style.display= 'block';
+//     mask.style.display = 'block';
+// });
 
-backBtn.addEventListener('click', () =>{
-    mask.style.display = 'none';
-    mobileNav.style.display = 'none';
-});
+// backBtn.addEventListener('click', () =>{
+//     mask.style.display = 'none';
+//     mobileNav.style.display = 'none';
+// });
 
-mask.addEventListener('click', () => {
-    mask.style.display = 'none';
-    mobileNav.style.display = 'none';
-});
+// mask.addEventListener('click', () => {
+//     mask.style.display = 'none';
+//     mobileNav.style.display = 'none';
+// });
 

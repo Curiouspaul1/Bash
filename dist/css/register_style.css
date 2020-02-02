@@ -37,7 +37,7 @@ main{
     width: 100%;
     vertical-align: middle;
     box-shadow: 0 2px 5px #34383a;
-    z-index: 20;
+    z-index: 10;
 }
 
 .navbar li{
@@ -90,7 +90,7 @@ main{
     top: 2%;
     text-align: center;
     height: 45rem;
-    z-index: 50;
+    z-index: 20;
 }
 
 #mobile-nav li{
@@ -110,12 +110,12 @@ main{
     transition-duration: 200ms;
 }
 
-#mask{
+.mask{
     display: none;
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: 25;
+    z-index: 15;
     background: #00000094;
 }
 

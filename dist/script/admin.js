@@ -1,9 +1,8 @@
 //Selectors for all
 const addPhoto = document.getElementById('add-photo');
 const photosDiv = document.querySelector('.new-story__input-images');
-// const mask =  document.querySelector('#mask');
-const logoutBtn = document.querySelector('.logoutBtn');
-const confirmDiv = document.getElementById('confirm-logout');
+const logoutBtns = document.querySelectorAll('.logoutBtn');
+const confirmDiv = document.querySelector('.confirm-logout');
 const yesLogout = document.getElementById('yes_logout');
 const noLogout = document.getElementById('no_logout');
 const newPhotoDiv = document.querySelectorAll('new-story__input-image');
@@ -12,10 +11,8 @@ const storyTextBox = document.getElementById('story-info');
 const storySubmit = document.querySelector('.btn-submit-story')
 const newsLetterTextBox = document.getElementById('newsletter-content');
 const newsLetterSubmit = document.querySelector('.btn-send-newsletter');
-const backBtn = document.getElementById('back-btn');
-const mobileNav = document.getElementById('mobile-nav');
-const hiddenNav = document.querySelector('.hidden-menu');
-const mask = document.getElementById('mask');
+// const mobileNav = document.getElementById('mobile-nav');
+const mask = document.querySelector('.mask');
 
 
 
@@ -52,9 +49,11 @@ newsLetterSubmit.addEventListener('click', (e) =>{
     return JSON.stringify(text);
 })
 
-logoutBtn.addEventListener('click', () =>{
-    mask.style.display = 'block';
-    confirmDiv.style.display = 'block';
+logoutBtns.forEach((logoutBtn) =>{
+    logoutBtn.addEventListener('click', ()=> {
+        mask.style.display = 'block';
+        confirmDiv.style.display = 'block';
+    })
 })
 
 yesLogout.addEventListener('click', () =>{
@@ -74,19 +73,8 @@ photosDiv.addEventListener("click", (e) => {
     }
 })
 
-hiddenNav.addEventListener('click', () => {
-    console.log("hey")
-    mobileNav.style.display = 'block';
-    mask.style.display = 'block';
-});
-
-backBtn.addEventListener('click', () => {
-    mask.style.display = 'none';
-    mobileNav.style.display = 'none';
-});
-
 
 mask.addEventListener('click', () => {
-    mask.style.display = 'none';
     mobileNav.style.display = 'none';
+    confirmDiv.style.display = 'none';
 });

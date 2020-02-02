@@ -85,7 +85,7 @@ main{
 
 /*Homepage for the BIMS*/
 .new-story_section{
-    background: #54772e;
+    background: #679436;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -128,7 +128,7 @@ main{
 
 .new-story__photo{
     margin-bottom: 0;
-    background: #54772e;
+    background: #679436;
     border: none;
     font-size: 20px;
     outline: none;
@@ -137,7 +137,7 @@ main{
 
 .new-story__input-image{
     display: inline-block;
-    background: #54772e;
+    background: #679436;
     width: 100%;
 }
 
@@ -177,7 +177,7 @@ main{
     flex-wrap: nowrap;
     width: 100%;
     padding-top: 1.5rem;
-    color: #54772e;
+    color: #679436;
     background: white;
 }
 
@@ -218,32 +218,32 @@ main{
     font-size: 20px;
 }
 
-#confirm-logout{
+.confirm-logout{
     display: none;
     position: fixed;
     top: 50%;
     left: 10%;
     right: 10%;
     background: white;
-    color: #54772e;
+    color: #679436;
     margin: auto;
     padding: 1.1rem;
     box-shadow: 0 0 10px #34383a;
     width: 50%;
     max-width: 400px;
-    z-index: 50;
+    z-index: 100;
 }
 
-#confirm-logout ul{
+.confirm-logout ul{
     text-align: center;
     margin: 2rem auto;
 }
 
-#confirm-logout li{
+.confirm-logout li{
     display: inline-block;
 }
 
-#confirm-logout a{
+.confirm-logout a{
     background: #54772e;
     color: white;
     padding: 0.7rem 1.2rem;
@@ -251,7 +251,7 @@ main{
     cursor: pointer;
 }
 
-#confirm-logout a:hover{
+.confirm-logout a:hover{
     background: #679436;
     color: white;
 }
@@ -275,9 +275,9 @@ footer{
 }
 
 .hidden-menu{
-      float: right;
-      margin-top: 15px;
-      display: none;
+    float: right;
+    margin-top: 15px;
+    display: none;
 
 }
 

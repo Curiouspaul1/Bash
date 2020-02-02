@@ -87,6 +87,7 @@ body {
     z-index: 15;
     padding-top: 10px;
     display: none;
+    box-shadow: 3px 0px 6px #00000029;;
 }
 
 .mobile-nav>ul {
@@ -97,7 +98,7 @@ body {
         'Lucida Sans Regular',
         'Lucida Grande',
         'Lucida Sans Unicode',
-        Geneva,
+        'Geneva',
         Verdana,
         sans-serif;
     font-size: 22px;
@@ -107,7 +108,7 @@ body {
 
 .mobile-nav>ul>li {
     margin-bottom: 10px;
-
+    cursor: pointer;
 }
 
 .mobile-nav>ul>li:hover {
@@ -117,6 +118,10 @@ body {
 .mobile-nav>ul>li>a {
     text-decoration: none;
     color: #fff;
+}
+
+.mobile-nav>ul>li>a:hover {
+    color: darkgray;
 }
 
 .nav-out {
