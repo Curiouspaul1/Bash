@@ -43,7 +43,7 @@ body {
 }
 
 .sub-nav-bar {
-    height: 70px;
+    height: 80px;
     background-color: #fff;
     text-align: right;
     color: #05668D;
@@ -55,6 +55,7 @@ body {
     align-items: center;
     position: fixed;
     width: 100%;
+    z-index: 10;
 }
 
 .sub-nav-bar li {
@@ -83,7 +84,7 @@ body {
     color: #fff;
     left: -300px;
     transition: 0.3s;
-    z-index: 5;
+    z-index: 15;
     padding-top: 10px;
     display: none;
 }
@@ -372,7 +373,7 @@ footer {
 
 
 footer>.social-media-nav {
-    height: 45px;
+    height: 55px;
     background-color: #435e26;
     color: #fff;
     padding: 6px;
@@ -446,7 +447,7 @@ footer>.social-media-nav>.social-details {
     }
 
     footer>.social-media-nav {
-        height: 70px;
+        height: 100px;
         max-width: 100%;
     }
 

@@ -61,18 +61,6 @@ main{
    transition-duration: 200ms;
 }
 
-/* .hamburger{
-    cursor: pointer;
-    width: 10%;
-}
-
-.hamburger a:hover{
-    background: #679436;
-    color: #ffffff;
-    border-radius:20px ;
-    transform: scale(1.1);
-    transition-duration: 200ms;
-} */
 
 .hidden-menu span {
   display: block;
@@ -133,7 +121,7 @@ main{
 
 .container{
     padding: 1rem;
-    margin: 100px 2rem 2rem 2rem;
+    margin: 0 2rem 2rem 2rem;
     background: rgba(0, 0, 0, 0.219);
     color: #ebe2ea;
     border: 1.2px solid black;

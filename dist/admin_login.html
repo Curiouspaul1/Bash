@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="./css/register_style.css">
     <link rel="stylesheet" href="./css/admin_style.css">
     <link rel="shortcut icon" href="/img/bammyLogo_register.ico">
@@ -12,31 +13,55 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <a id="logo" href="index.html"><img src="./img/bammyLogo_register.jpg" alt="Home"></a>
+        <div class="mobile-nav">
+            <a id="logo2" href="index.html">
+                <img src="./img/bammyLogo_register.jpg" alt="Home">
+            </a>
             <ul>
-                <a href="index.html"><li>Home</li></a>
-                <a><li>About Us</li></a>
-                <a><li>Portal</li></a>
-                <a><li>Events</li></a>
-                <a><li>Gallery</li></a>
-            </ul>
-            <div class="hidden-menu menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        <div id="mask"></div>
-        <div id="mobile-nav">
-            <ul>
-                <a id="back-btn"><li>Back to page</li></a>
-                <a><li>About Us</li></a>
-                <a><li>Portal</li></a>
-                <a><li>Events</li></a>
-                <a><li>Gallery</li></a>
+                <li class="active">HOME</li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li>PORTAL</li>
+                <li>EVENTS</li>
+                <li>GALLERY</li>
+                <li><a href="./admin_login.html">ADMIN</a></li>
             </ul>
         </div>
+
+        <nav class="nav-bar">
+            <nav class="sub-nav-bar">
+                <ul>
+                    <a id="logo" href="index.html">
+                        <li><img src="./img/bammyLogo_register.jpg" alt="Home"></li>
+                    </a>
+                </ul>
+                <ul class="menubar">
+                    <a class="menulink" href="about.html">
+                        <li>About Us</li>
+                    </a>
+                    <a class="menulink">
+                        <li>Portal</li>
+                    </a>
+                    <a class="menulink">
+                        <li>Events</li>
+                    </a>
+                    <a class="menulink">
+                        <li>Gallery</li>
+                    </a>
+                    <a href="./admin_login.html" class="menulink">
+                        <li>Admin</li>
+                    </a>
+                </ul>
+                <div class="spinner-master">
+                    <input type="checkbox" id="spinner-form" />
+                    <label for="spinner-form" class="spinner-spin">
+                        <div class="spinner diagonal part-1"></div>
+                        <div class="spinner horizontal"></div>
+                        <div class="spinner diagonal part-2"></div>
+                    </label>
+                </div>
+            </nav>
+
+        </nav>
     </header>
     <main>
         <section class="container">
@@ -57,6 +82,8 @@
         <p>bammycollege@gmail.com</p><br>
         <p>+234705644176</p><br>
     </footer>
+    <script src="./script/app.js"></script>
     <script src="./script/admin-login.js"></script>
+
 </body>
 </html>

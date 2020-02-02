@@ -15,11 +15,7 @@ body {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
-/* section#about,
-section#features,
-section#principal {
-    scroll-snap-align: center;
-} */
+
 .main-nav {
     background-color: #679436;
     display: flex;
@@ -107,7 +103,8 @@ section#principal {
 
 .about-text {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 3rem;
+    padding-top: 7rem;
 }
 .about {
     color: white;
@@ -115,6 +112,7 @@ section#principal {
     font-family: Montserrat;
     font-size: 2.5rem;
     letter-spacing: 0.5rem;
+    margin-top: 2rem;
 }
 .buttons {
     display: flex;
