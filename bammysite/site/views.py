@@ -199,22 +199,22 @@ def add_news():
 
 	return render_template('admin_main.html',form=form)
 
-@sitemod.route('/news')
+@sitemod.route('/news',methods=['GET','POST'])
 @cross_origin()
 def news():
 	all_news = News.query.all()
 	return jsonify(multinews_schema.dump(all_news))
 
-@sitemod.route('/about')
+@sitemod.route('/about',methods=['GET','POST'])
 def about():
 	return render_template('about.html')
 
-@sitemod.route('/newspage')
+@sitemod.route('/newspage',methods=['GET','POST'])
 def newspage():
 	title='Events'
 	return render_template('newspage.html',title=title)
 
-@sitemod.route('/uploads/<path:filename>')
+@sitemod.route('/uploads/<path:filename>',methods=['GET','POST'])
 def uploads(filename):
 	from flask import current_app
 	return current_app.send_static_file(filename)

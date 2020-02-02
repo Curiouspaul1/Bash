@@ -11,7 +11,7 @@ class Config:
 	MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 	MAIL_DEFAULT_SENDER = 'Bammy COllege'
-	UPLOADED_IMAGES_DEST = 'uploads'
+	UPLOADED_IMAGES_DEST = os.getcwd()+"\\bammysite\\static\\uploads"
 	#UPLOADED_IMAGES_URL = "localhost:5000/images"
 
 	@staticmethod

@@ -33,7 +33,7 @@ def __call__(config_name):
 
     # configure image set with app
     configure_uploads(app,images)
-
+    
     # register blueprint
     from bammysite.site import sitemod
 

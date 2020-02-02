@@ -20,7 +20,7 @@ fetch('/news')
         let dateObj = new Date(article.date_created);
         newsDate.innerHTML = `${dateObj.toLocaleDateString()}`;
         let newsImg = document.createElement('img');
-        newsImg.src = Flask.url_for('uploads', {'filename': `${article.img_data}`});
+        newsImg.src = Flask.url_for('static', {'filename': `uploads/${article.img_data}`});
         newsImg.className = 'news-img';
         let newsContent = document.createElement('div');
         newsContent.innerHTML = article.body;

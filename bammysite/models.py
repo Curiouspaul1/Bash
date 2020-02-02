@@ -63,7 +63,7 @@ class News(db.Model):
 	__tablename__ = 'News'
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
 	title = db.Column(db.String(100))
-	body = db.Column(db.String(100))
+	body = db.Column(db.Text)
 	date_created = db.Column(db.DateTime,default=datetime.utcnow)
 	img_data = db.Column(db.Text())
 
