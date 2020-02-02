@@ -147,7 +147,9 @@
                         <input type="email" name="pemail" id="pemail" required>
                     </div>
                 </div>
-                <!--<input type="submit" class="btn btn-submit-form" value="submit">-->   
+                <!--<input type="submit" class="btn btn-submit-form" value="submit">-->
+                <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+                <button type="button" onClick="payWithRave()">Pay Now</button>
             </form>
         </section>
     </main>
@@ -159,5 +161,40 @@
     </footer>
     <script src="{{url_for('static',filename='script/register_app.js')}}"></script>
     <script src="{{url_for('static',filename='script/studentsData.js')}}"></script>
+
+    <script>
+    const API_publicKey = "FLWPUBK_TEST-a8dfe7089beab0ea37afb880ccb4dfe4-X";
+
+    function payWithRave() {
+        var x = getpaidSetup({
+            PBFPubKey: API_publicKey,
+            customer_email: "user@example.com",
+            amount: 2000,
+            customer_phone: "234099940409",
+            currency: "NGN",
+            txref: "2020Bammy#",
+            meta: [{
+                metaname: "flightID",
+                metavalue: "AP1234"
+            }],
+            onclose: function() {},
+            callback: function(response) {
+                var txref = response.tx.txRef; // collect txRef returned and pass to a                  server page to complete status check.
+                console.log("This is the response returned after a charge", response);
+                if (
+                    response.tx.chargeResponseCode == "00" ||
+                    response.tx.chargeResponseCode == "0"
+                ) {
+                    // redirect to a success page
+                } else {
+                    // redirect to a failure page.
+                }
+
+                x.close(); // use this to close the modal immediately after payment.
+            }
+        });
+    }
+</script>
 </body>
 </html>
+
