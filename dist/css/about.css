@@ -4,15 +4,11 @@
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
-    overflow: hidden;
     background-color: #fff;
 }
 .container {
     width: 100%;
     height: 100%;
-    /* css smooth scroll */
-    overflow-y: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
@@ -74,7 +70,6 @@ body {
 
 .about-text {
     text-align: center;
-    margin-top: 3rem;
     padding-top: 7rem;
 }
 .about {
@@ -234,9 +229,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .principal-info p {
     font-size: 16px;
-    margin: 2rem auto;
+    margin: 2rem;
     line-height: 1.7em;
     color: #3b5c18;
+}
+
+footer{
+    margin-top: 10rem;
 }
 
 @media(min-width:53rem){
