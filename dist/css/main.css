@@ -109,6 +109,7 @@ body {
 .mobile-nav>ul>li {
     margin-bottom: 10px;
     cursor: pointer;
+    padding: 1rem 0;
 }
 
 .mobile-nav>ul>li:hover {
@@ -206,6 +207,10 @@ body {
     cursor: pointer;
 }
 
+.menulink{
+    text-decoration: none;
+    padding: 0 1rem;
+}
 
 .brandName {
     font-size: 25px;

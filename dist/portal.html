@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="./css/register_style.css">
-    <link rel="stylesheet" href="./css/admin_style.css">
-    <link rel="shortcut icon" href="/img/bammyLogo_register.ico">
-    <title>Bammy School | Admin page</title>
+    <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/all.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="./img/BAMMY LOGO (1).ico">
+    <title>Bammy College | Portal</title>
 </head>
+
 <body>
     <header>
         <div class="mobile-nav">
@@ -26,7 +26,7 @@
                 <li><a href="./admin_login.html">ADMIN</a></li>
             </ul>
         </div>
-
+        <div id="mask"></div>
         <nav class="nav-bar">
             <nav class="sub-nav-bar">
                 <ul>
@@ -63,27 +63,25 @@
 
         </nav>
     </header>
-    <main>
-        <section class="container">
-            <img id="admin-logo" src="./img/website.png">
-            <h3 id="admin-text">Bammy's Information Management System</h3>
-            <form id="admin-login" action="./admin_main.html">
-                <input type="email" name="admin-login__email" id="admin-login__email" class="admin-input" placeholder="Email">
-                <input type="password" name="admin-login__password" id="admin-login__password" class="admin-input" placeholder="Password"><br>
-                <span id="remember"><input type="checkbox" name="remember-me" id="remember-me"><p id="remember-me-text">Remember me</p><br></span>
-                <input type="submit" value="Log In" class="btn btn-submit">
-                <a id="admin-forgot-password">Forgot your password?</a>
-            </form>
-        </section>
 
-    </main>
+
+
     <footer>
-        <p>&copy; Bammy School 2019</p><br>
-        <p>bammycollege@gmail.com</p><br>
-        <p>+234705644176</p><br>
+        <div class="social-media-nav">
+            <ul class="contact-details">
+                <li><i class="fa fa-phone-square" aria-hidden="true"> </i>+234705644176</li>
+                <li><i class="fa fa-envelope" aria-hidden="true"> </i>bammycollege@gmail.com</li>
+                <li><i class="fa fa-clock" aria-hidden="true"> </i>School hours: 8:00AM - 3:00PM</li>
+            </ul>
+            <ul class="social-details">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-whatsapp"></i></a></i></li>
+            </ul>
+        </div>
     </footer>
     <script src="./script/app.js"></script>
-    <script src="./script/admin-login.js"></script>
-
 </body>
+
 </html>
