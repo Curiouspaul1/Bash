@@ -33,7 +33,7 @@ class ProductionConfig(Config):
 	UPLOADED_IMAGES_DEST = os.getcwd()+"bammysite/static/uploads"
 """
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-UPLOADED_IMAGES_DEST = os.getcwd()+"bammysite/static/uploads"
+UPLOADED_IMAGES_DEST = os.getcwd()+"/bammysite/static/uploads"
 """
 
 config = {
