@@ -24,7 +24,7 @@ body,html{
 
 .news{
     display: block;
-    background-color: #00ff0059;
+    /*background-color: #00ff0059;*/
     width: 90%;
     height: auto;
     margin: 0.5rem auto;
@@ -37,8 +37,9 @@ body,html{
     display: block;
 }
 
-.news img{
-    width: 20%;
+.news-img{
+    width: 80px;
+    height: 80px;
     max-width: 400px;
     margin: 0.8rem;
     border-radius: 15px;

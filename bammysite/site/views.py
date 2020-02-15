@@ -6,9 +6,19 @@ from bammysite.models import parents_schema,student_schema,students_schema,sibli
 from flask_mail import Message
 from flask_cors import cross_origin
 from flask import current_app
-from bammysite.uploads import images
-import os
-import smtplib
+from werkzeug.utils import secure_filename
+#from bammysite.uploads import images
+import hashlib, random, requests, os, smtplib
+
+
+# reference key gen
+def refgen(key):
+	rand = [i for i in key]
+	random.shuffle(rand)
+	rand = ''.join(rand)
+	rand = hashlib.md5(rand.encode('utf-8')).hexdigest()
+	return rand
+
 
 # check that current users have a session
 @sitemod.before_request
@@ -23,54 +33,80 @@ def index():
 	return render_template('index.html')
 
 # application
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 @sitemod.route('/register',methods=['GET','POST'])
 def register():
 	if request.method == 'POST':
 		# fetch parent-data from form
-		pname = request.json['name']
-		raddress = request.json['raddress']
-		oaddress = request.json['oaddress']
-		tel = request.json['tel']
-		email = request.json['email']
-		family = request.json['family']
-		etel = request.json['Etel']
-		siblings = reuest.json['siblings']
+		pname = request.form['name']
+		raddress = request.form['raddress']
+		oaddress = request.form['oaddress']
+		tel = request.form['tel']
+		email = request.form['email']
+		family = request.form['family']
+		etel = request.form['Etel']
+		siblings = request.form['siblings']
 		
 		# fetch student data
-		sname = request.json['sname']
-		dob = request.json['dob']
-		bg = request.json['bg']
-		bp = request.json['bp']
-		state = request.json['state']
-		gen = request.json['gen']
-		lga = request.json['lga']
-		school = request.json['school']
-		school_address = request.json['school_address']
-		class_ = request.json['class_']
-		year = request.json['year']
-		sex = request.json['sex']
-		ail = srequest.json['ail']
+		sname = request.form['sname']
+		dob = request.form['dob']
+		bg = request.form['bg']
+		bp = request.form['bp']
+		state = request.form['state']
+		gen = request.form['gen']
+		lga = request.form['lga']
+		school = request.form['school']
+		school_address = request.form['school_address']
+		class_ = request.form['class_']
+		year = request.form['year']
+		sex = request.form['sex']
+		ail = request.form['ail']
+		occ = request.form['occupation']
 
 		# fetch sibling data
-		s_name = request.json['s_name']
-		s_class = request.json['s_class']
-		s_year = request.json['s_year']
+		s_name = request.form['s_name']
+		s_class = request.form['s_class']
+		s_year = request.form['s_year']
+
+		# Sibling object
+		sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
 
 		# create parent object
-		parent = Parent(pname=pname,raddress=raddress,oaddress=oaddress,tel=tel,email=email,family=family,etel=etel,siblings=siblings)
+		parent = Parent(pname=pname,raddress=raddress,occupation=occ,oaddress=oaddress,tel=tel,email=email,family=family,etel=etel)
 
 		# Student object
 		student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
 
-		# Sibling object
-		sibling = Sibling(s_name=s_name,s_class_=s_class,s_year=s_year)
+		pay_cred = request.form['payment-cred']
+		if 'file' not in request.files:
+			return redirect(url_for('site.register'))
+		if pay_cred.filename == '':
+			error = 'No file selected'
+			return render_template('register_index.html',error=error)
+		if pay_cred and allowed_file(pay_cred.filename):
+			filename = secure_filename(image.filename)
+			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],'payments'+filename))
+			news = News(title=headline,body=info,img_data=image.filename)
 
-		db.session.add_all([parent,student,sibling])
+			db.session.add_all([parent,student,sibling])
+			db.commit()
 
-		db.commit()
+	"""	PBFPubKey = "FLWPUBK_TEST-a8dfe7089beab0ea37afb880ccb4dfe4-X"
+		txref = refgen(''.join([i for i in 'Bammy2020#']))
+		customer_email = email
+		customer_phone = tel
+		amount = 2000
 
-		# parse data
-		return render_template("pay.html")
+		response = requests.post("https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay",data={'customer_phone':tel,'customer_email':email,'amount':amount,'txref':txref,'PBFPubKey':PBFPubKey})
+		response.encoding = 'utf-8'
+		response.text
+		current_app.logger.info(response.status_code)
+		current_app.logger.info(response.json()['data']['link'])
+
+		return redirect(response.json()['data']['link'])"""
+
 	return render_template('register_index.html')
 
 
@@ -174,6 +210,10 @@ def news_signup():
 		return render_template('index.html')
 	return render_template('index.html')
 
+# config for uploads
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @sitemod.route('/add_news',methods=['GET','POST'])
 def add_news():
@@ -182,13 +222,12 @@ def add_news():
 	if request.method == 'POST':
 		headline = request.form['news_headline']
 		info = request.form['story-info']
-		#image = request.files['news_photo']
-		filename = images.save(form.image.data)
-
-		news = News(title=headline,body=info,img_data=filename)
-
-		#print(filename)
-
+		image = request.files['image']
+		if image and allowed_file(image.filename):
+			filename = secure_filename(image.filename)
+			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
+			news = News(title=headline,body=info,img_data=image.filename)
+		news = News(title=headline,body=info)
 		db.session.add(news)
 		db.session.commit()
 
@@ -213,11 +252,6 @@ def about():
 def newspage():
 	title='Events'
 	return render_template('newspage.html',title=title)
-
-@sitemod.route('/uploads/<path:filename>',methods=['GET','POST'])
-def uploads(filename):
-	from flask import current_app
-	return current_app.send_static_file(filename)
 
 
 """@sitemod.route('/pay-checkout')

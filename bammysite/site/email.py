@@ -1,1 +1,1 @@
-images = UploadSet('images',IMAGES)
+#images = UploadSet('images',IMAGES)

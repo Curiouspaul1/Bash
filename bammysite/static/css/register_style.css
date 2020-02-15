@@ -252,6 +252,41 @@ main{
     border-radius: 10px;
 }
 
+.payment {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    margin-top:2rem;
+}
+
+.payment-input {
+    flex-wrap: wrap;
+    margin:1rem;
+}
+
+.payment-inpput input {
+    width: 70%;
+    padding: 0.5rem;
+    outline: none;
+    border: 1.5px solid black;
+    border-radius: 10px;
+}
+
+.payment p {
+   width: 90%;
+   margin:0 auto;
+   color:#f4f4f4;
+}
+
+.error {
+    width: 100vw;
+    padding: 10px;
+    background: #f3f3f3;
+    font-size: 2em;
+    color: #9b3137;
+}
+
+
 .btn{
     position: relative;
     left: 12%;

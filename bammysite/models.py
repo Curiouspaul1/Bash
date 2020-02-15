@@ -14,6 +14,7 @@ class Parent(db.Model):
 	family = db.Column(db.String(100))
 	siblings = db.Column(db.String(50))
 	etel = db.Column(db.String(50))
+	occupation = db.Column(db.String(100))
 
 	#relationship
 	student = db.relationship('Student',backref='stud_parent')

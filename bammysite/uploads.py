@@ -1,3 +1,3 @@
-from flask_uploads import configure_uploads, IMAGES, UploadSet
+"""from flask_uploads import configure_uploads, IMAGES, UploadSet
 
-images = UploadSet('images',IMAGES)
+images = UploadSet('images',IMAGES)"""

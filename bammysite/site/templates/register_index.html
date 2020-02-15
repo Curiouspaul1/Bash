@@ -12,6 +12,7 @@
 </head>
 <body>
     <header>
+
         <nav class="navbar">
             <a id="logo" href="index"><img src="{{url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home"></a>
             <ul >
@@ -38,15 +39,18 @@
         </div>
     </header>
     <main >
+        {% if error %}
+            <div class="error">{{error}}</div>>
+        {% endif %}
         <section class="container">
             <h3 class="title">Registration Form</h3>
-            <form method="GET" class="student-info" action="application">
+            <form method="POST" class="student-info" action="register" enctype="multipart/form-data">
                 <div class="student-data">
                     <h4 class="title__subtitle">Student Data</h4>
                     <hr class="underline">
                     <div class="student-input">
-                        <label for="s_name">Full Name:</label>
-                        <input type="text" name="s_name" id="s_name" required>
+                        <label for="sname">Full Name:</label>
+                        <input type="text" name="sname" id="s_name" required>
                         <p class="subtitle"><em>(start with surname)</em></p>
                     </div>
                     <div class="student-input">
@@ -106,10 +110,23 @@
                         <label for="year">Year of application:</label>
                         <input type="text" name="year" id="year" required>
                     </div>
+                    
                     <div class="student-input">
                         <label for="number-of-siblings">Number of Siblings in the school:</label>
-                        <input type="text" name="number-of-siblings" id="number-of-siblings">
+                        <input type="text" name="siblings" id="number-of-siblings">
                         <p class="subtitle"><em>(Enter 0 if none)</em></p>
+                    </div>
+                    <div class="student-input">
+                        <label for="s_name">Siblings Name:</label>
+                        <input type="text" name="s_name" id="s_name" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="s_class">Sibling's Class:</label>
+                        <input type="text" name="s_class" id="s_class" required>
+                    </div>
+                    <div class="student-input">
+                        <label for="s_year">Sibling's Year of admission:</label>
+                        <input type="text" name="s_year" id="s_year" required>
                     </div>
 
                     <div class="siblings"></div>
@@ -120,7 +137,7 @@
                     <hr class="underline">
                     <div class="parent-input">
                         <label for="pname">Full Name:</label>
-                        <input type="text" name="pname" id="pname" required>
+                        <input type="text" name="name" id="pname" required>
                     </div>
                     <div class="parent-input">
                         <label for="occupation">Occupation:</label>
@@ -144,10 +161,27 @@
                     </div>
                     <div class="parent-input">
                         <label for="pemail">E-mail:</label>
-                        <input type="email" name="pemail" id="pemail" required>
+                        <input type="email" name="email" id="pemail" required>
+                    </div>
+                    <div class="parent-input">
+                        <label for="family">Marital Status</label>
+                        <input type="text" name="family" id="family" required>
                     </div>
                 </div>
-                <!--<input type="submit" class="btn btn-submit-form" value="submit">-->
+                <div class="payment">
+                    <p>
+                        <strong>You are required to pay the admissio fee of 2000 naira in order to proceed</strong><br>
+                        Please ensure to upload payment credentials after making the payment. Allowed credentials include: <br>
+                        <br>
+                        <b>1</b> Snapshot of Bank Teller <br>
+                        <b>2</b> Screenshot of debit alert <br>
+                    </p>
+                    <div class="payment-input">
+                        <label for="payment-cred">Payment Credential</label>
+                        <input type="file" accept="image/*" id="payment-cred" name="payment-cred" class="new-story__photo" required>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-submit-form" value="submit">
             
             </form>
         </section>

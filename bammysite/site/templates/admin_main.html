@@ -52,6 +52,7 @@
         <section class="new-story_section">
             <h3 id="new-story__header">Create new story</h3>
             <hr class="underline">
+            {{form.csrf}}
             <form id="new-story" action="add_news" method="POST" enctype="multipart/form-data">
                 <label for="new-story__title">Title of story: </label>
                 <input type="text" name="news_headline" id="new-story__title" placeholder="...">
@@ -72,6 +73,7 @@
         <section class="compose-newsletter_section">
             <h3 id="newsletter__header">New Newsletter</h3>
             <hr class="underline">
+            {{form.csrf}}
             <form id="compose-newsletter" action="send_newsletter"  method='POST'>
                 <label for="newsletter__title">Title of Newsletter: </label>
                 <input type="text" name="newsletter__title" id="newsletter__title" placeholder="...">
