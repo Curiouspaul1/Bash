@@ -31,6 +31,10 @@ def __call__(config_name):
     jsglue.init_app(app)
     CORS(app)
 
+    """if app.config['SSL_REDIRECT']:
+       from flask_sslify import SSLify
+       sslify = SSLify(app)"""
+
     # configure image set with app
     #configure_uploads(app,images)
     
