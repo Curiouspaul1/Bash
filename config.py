@@ -30,6 +30,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+	UPLOADED_IMAGES_DEST = os.getcwd()+"bammysite/static/uploads"
 
 config = {
     'development':DevelopmentConfig,
