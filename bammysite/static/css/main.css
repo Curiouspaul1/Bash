@@ -216,14 +216,13 @@ body {
     width: 100%;
     height: 50vh;
     box-sizing: border-box;
-    background-image: url("../img/BAMMY BUILDING.jpg") !important;
+    background-image: url("../img/DSC_0538.JPG") !important;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
     z-index:10;
-    opacity: 0.5;
 }
 
 .landing-page-text {
@@ -235,17 +234,9 @@ body {
     font-size: 30px;
     font-weight: bolder;
     opacity: 1 !important;
-    
+    color: #5a201a;
 }
 
-.overlay {
-    background-color:  rgba(8, 81, 207, 0.394);
-}
-
-.landing-page-text > h3{
-    color: #a30404;
-    box-shadow: 0 2px 5px #34383a;
-}
 
 .Register-link {
     height: 60px;
