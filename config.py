@@ -29,8 +29,12 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.getenv('TEST_URI') or f"mysql://root:{dbpassword}@localhost/bammy_test"
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 	UPLOADED_IMAGES_DEST = os.getcwd()+"bammysite/static/uploads"
+"""
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+UPLOADED_IMAGES_DEST = os.getcwd()+"bammysite/static/uploads"
+"""
 
 config = {
     'development':DevelopmentConfig,
