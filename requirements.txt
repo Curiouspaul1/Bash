@@ -13,6 +13,7 @@ Flask-Migrate==2.5.2
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.4.1
 Flask-SSLify==0.1.5
+flask-transfer==0.1.0
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.3
 gunicorn==20.0.4
