@@ -220,14 +220,29 @@ def add_news():
 	from .forms import NewsForm
 	form = NewsForm()
 	if request.method == 'POST':
-		headline = request.form['news_headline']
-		info = request.form['story-info']
-		image = request.files['image']
-		if image and allowed_file(image.filename):
-			filename = secure_filename(image.filename)
-			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
-			news = News(title=headline,body=info,img_data=image.filename)
-		news = News(title=headline,body=info)
+		if os.getenv('FLASK_CONFIG') == 'production':
+			current_app.config['UPLOADED_IMAGES_DEST'] = os.getcwd()+"\\bammysite\\static\\uploads"
+			headline = request.form['news_headline']
+			info = request.form['story-info']
+			image = request.files['image']
+			filename = photos.save(request.files['image'])
+			rec = Photo(filename=filename, user=g.user.id)
+			rec.store()
+			if image and allowed_file(image.filename):
+				filename = secure_filename(image.filename)
+				image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
+				news = News(title=headline,body=info,img_data=image.filename)
+			news = News(title=headline,body=info)
+		else:
+			headline = request.form['news_headline']
+			info = request.form['story-info']
+			image = request.files['image']
+			if image and allowed_file(image.filename):
+				filename = secure_filename(image.filename)
+				image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
+				news = News(title=headline,body=info,img_data=image.filename)
+			news = News(title=headline,body=info)
+		
 		db.session.add(news)
 		db.session.commit()
 

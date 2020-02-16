@@ -13,7 +13,6 @@ class Config:
 	MAIL_DEFAULT_SENDER = 'Bammy COllege'
 	UPLOADED_IMAGES_DEST = os.getcwd()+"\\bammysite\\static\\uploads"
 	SSL_REDIRECT = False
-	#UPLOADED_IMAGES_URL = "localhost:5000/images"
 
 	@staticmethod
 	def init_app(app):
