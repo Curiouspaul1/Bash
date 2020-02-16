@@ -238,7 +238,8 @@ def add_news():
 		image = request.files['image']
 		if image and allowed_file(image.filename):
 			filename = secure_filename(image.filename)
-			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
+			#image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
+			image.save(current_app.config['UPLOADED_IMAGES_DEST'])
 			news = News(title=headline,body=info,img_data=image.filename)
 		news = News(title=headline,body=info)
 		
