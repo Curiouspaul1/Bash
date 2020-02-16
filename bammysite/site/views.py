@@ -236,12 +236,13 @@ def add_news():
 		headline = request.form['news_headline']
 		info = request.form['story-info']
 		image = request.files['image']
+		filename = secure_filename(image.filename)
+		#image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
+		image.save(current_app.config['UPLOADED_IMAGES_DEST'])
 		if image and allowed_file(image.filename):
-			filename = secure_filename(image.filename)
-			#image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
-			image.save(current_app.config['UPLOADED_IMAGES_DEST'])
 			news = News(title=headline,body=info,img_data=image.filename)
-		news = News(title=headline,body=info)
+		else:
+			news = News(title=headline,body=info)
 		
 		db.session.add(news)
 		db.session.commit()
