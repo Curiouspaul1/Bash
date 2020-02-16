@@ -4,7 +4,6 @@ from datetime import datetime
 # Parent's data
 class Parent(db.Model):
 	# Parent's details
-	__tablename__ = 'Parent'
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
 	pname = db.Column(db.String(100))
 	raddress = db.Column(db.String(100))
@@ -24,7 +23,6 @@ class Parent(db.Model):
 
 class Student(db.Model):
 	# Ward's details
-	__tablename__ = 'Student'
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
 	sname = db.Column(db.String(100))	
 	dob = db.Column(db.String(100))
@@ -40,28 +38,25 @@ class Student(db.Model):
 	school_address = db.Column(db.String(200))
 	class_ = db.Column(db.String(100))
 	year = db.Column(db.String(100))
-	parentid = db.Column(db.Integer,db.ForeignKey('Parent.id'))
+	parentid = db.Column(db.Integer,db.ForeignKey('parent.id'))
 
 # sibling details
 class Siblings(db.Model):
-	__tablename__ = 'Siblings'
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
 	s_name = db.Column(db.String(100))
 	s_class_ = db.Column(db.String(100))
 	s_year = db.Column(db.String(100))
-	parentid = db.Column(db.Integer,db.ForeignKey('Parent.id'))
+	parentid = db.Column(db.Integer,db.ForeignKey('parent.id'))
 
 
 # subscriber's data
 class subscriber(db.Model):
-	__tablename__ = 'Subscriber'
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
 	sub_name = db.Column(db.String(100))
 	sub_email = db.Column(db.String(100))
-	parentid = db.Column(db.Integer,db.ForeignKey('Parent.id'))
+	parentid = db.Column(db.Integer,db.ForeignKey('parent.id'))
 
 class News(db.Model):
-	__tablename__ = 'News'
 	id = db.Column(db.Integer,nullable=False,primary_key=True)
 	title = db.Column(db.String(100))
 	body = db.Column(db.Text)
