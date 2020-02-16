@@ -1,4 +1,4 @@
-from bammysite.uploads import images
+#from bammysite.uploads import images 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
@@ -6,7 +6,8 @@ from flask_migrate import Migrate
 from flask_mail import Mail,Message
 from flask_script import Manager
 from flask_ckeditor import CKEditor
-from flask_uploads import configure_uploads
+"""#from flask_uploads import configure_uploads
+Flask-Uploads had compatibility issues with Werkzeug 1.0.0"""
 from flask_cors import CORS
 from flask_jsglue import JSGlue
 from config import config
@@ -36,7 +37,7 @@ def __call__(config_name):
        sslify = SSLify(app)"""
 
     # configure image set with app
-    configure_uploads(app,images)
+    #configure_uploads(app,images)
     
     # register blueprint
     from bammysite.site import sitemod
