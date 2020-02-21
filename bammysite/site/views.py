@@ -9,6 +9,7 @@ from flask import current_app
 from werkzeug.utils import secure_filename
 #from bammysite.uploads import images
 import hashlib, random, requests, os, smtplib
+import json, datetime
 
 
 # reference key gen
@@ -19,6 +20,10 @@ def refgen(key):
 	rand = hashlib.md5(rand.encode('utf-8')).hexdigest()
 	return rand
 
+# helps make objects json serializable
+def myconverter(o):
+	if isinstance(o,News):
+		return o.__str__()
 
 # check that current users have a session
 @sitemod.before_request
@@ -27,9 +32,21 @@ def before_request():
 	if 'user' in session:
 		g.user = session['user']
 
+@sitemod.route('/feeds',methods=['GET','POST'])
+def feeds():
+	news = News.query.all()
+	t_stamp = [i.date_created for i in news]
+	t_stamp = sorted(t_stamp,key=lambda item:item, reverse=True)
+	news = [News.query.filter_by(date_created=i).first() for i in t_stamp]
+	current_app.logger.info(news)
+	return jsonify(multinews_schema.dump(news))
+
 @sitemod.route('/')
-@sitemod.route('/index')
+@sitemod.route('/index',methods=['GET','POST'])
 def index():
+	news = News.query.all()
+	t_stamp = [i.date_created for i in news]
+	t_stamp = sorted(t_stamp,key=lambda item:item, reverse=True)
 	return render_template('index.html')
 
 # application

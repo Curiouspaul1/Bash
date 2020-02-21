@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="mobile-nav">
-            <a id="logo2" href="index.html">
+            <a id="logo2" href="{{url_for('site.index')}}">
                 <img src="{{ url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home">
             </a>
             <ul>
@@ -27,7 +27,7 @@
         <nav class="nav-bar">
             <nav class="sub-nav-bar">
                 <ul>
-                    <a id="logo" href="index.html">
+                    <a id="logo" href="{{url_for('site.index')}}">
                         <li><img src="{{url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home"></li>
                     </a>
                 </ul>

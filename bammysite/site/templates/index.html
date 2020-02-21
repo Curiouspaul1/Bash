@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+    {{ JSGlue.include() }}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" con           tent="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bammy College</title>
+    <title>Bammy School | {{title}}</title>
     <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/all.css">
     <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
     <link rel="icon" href="{{url_for('static',filename='img/BAMMY LOGO (1).ico')}}">
@@ -73,52 +74,40 @@
 
     <section class="latest-news-container">
         <h1 class="latest-news">LATEST NEWS</h1>
-        <div class="news-container">
-            <div class="news">
-                <div class="news-header">OPEN DAY</div>
+        <div class="news-container" id="news-container">
+           <!--<div class="news">
+                <div class="news-header"></div>
                 <div class="mobile-view-div">
                     <div class="news-image-container">
-                        <img class="news-image" src="{{url_for('static',filename='img/DSC_0525.JPG')}}" alt="news-Image">
+                        <img class="news-image" src="" alt="news-Image">
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="hidden-span-on-mobile">Sed
-                            libero lectus, vestibulum sollicitudin malesuada dignissim,
-                            ultricies efficitur lacus. Curabitur nec nisi nec nisl finibus fermentum. Praesent ac dui ac
-                            justo hendrerit imperdiet.
-                            Integer consequat, quam eget ornare ultricie.</span>
-                        <a href="#" class="Readmore">Read More ..</a></p>
-
+                    <p>
+                        <a href="#" class="Readmore">Read More ..</a>
+                    </p>
                 </div>
             </div>
             <div class="news">
-                <div class="news-header">NEW PREFECTS</div>
+                <div class="news-header"></div>
                 <div class="mobile-view-div">
-                    <div class="news-image-container"><img class="news-image" src="{{url_for('static',filename='img/DSC_0538.JPG')}}" alt="news-Image">
+                    <div class="news-image-container"><img class="news-image" src="" alt="news-Image">
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="hidden-span-on-mobile">Sed
-                            libero lectus, vestibulum sollicitudin malesuada
-                            dignissim,
-                            ultricies efficitur lacus. Curabitur nec nisi</span>
-                        <a href="#" class="Readmore">Read More ..</a>
+                    <p>
+                         <a href="#" class="Readmore">Read More ..</a>
                     </p>
 
                 </div>
             </div>
             <div class="news">
-                <div class="news-header">SECOND TERM EXAMINATION</div>
+                <div class="news-header"></div>
                 <div class="mobile-view-div">
-                    <div class="news-image-container"><img class="news-image" src="{{url_for('static',filename='img/DSC_0452.JPG')}}" alt="news-Image">
+                    <div class="news-image-container"><img class="news-image" src="" alt="news-Image">
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="hidden-span-on-mobile">Sed
-                            libero lectus, vestibulum sollicitudin malesuada
-                            dignissim,
-                            ultricies efficitur lacus. Curabitur nec nisi nec nisl finibus fermentum. Praesent ac dui ac
-                            justo hendrerit
-                            imperdiet.</span>
-                        <a href="#" class="Readmore">Read More ..</a>
+                    <p>
+                         <a href="#" class="Readmore">Read More ..</a>
                     </p>
 
                 </div>
-            </div>
+            </div>-->
         </div>
         <div id="view-more-link">
             <a href="{{url_for('site.newspage')}}" >View more</a>
@@ -150,7 +139,7 @@
         <div class="social-media-nav">
             <ul class="contact-details">
                 <li><i class="fa fa-phone-square" aria-hidden="true"> </i>+234705644176</li>
-                <li><i class="fa fa-envelope" aria-hidden="true"> </i>bammycollege@gmail.com</li>
+                <li><i class="fa fa-envelope" aria-hidden="true"> </i>bammycollege03@gmail.com</li>
                 <li><i class="fa fa-clock" aria-hidden="true"> </i>School hours: 8:00AM - 3:00PM</li>
             </ul>
             <ul class="social-details">
