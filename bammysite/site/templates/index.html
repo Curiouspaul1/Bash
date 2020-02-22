@@ -4,7 +4,7 @@
 <head>
     {{ JSGlue.include() }}
     <meta charset="UTF-8">
-    <meta name="viewport" con           tent="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bammy School | {{title}}</title>
     <link rel="stylesheet" href="fontawesome-free-5.12.0-web/css/all.css">
@@ -14,19 +14,17 @@
 
 <body>
     <header>
-        <div class="mobile-nav">
+        <!--<div class="mobile-nav">
             <a id="logo2" href="{{url_for('site.index')}}">
                 <img src="{{url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home">
             </a>
             <ul>
                 <li class="active">HOME</li>
                 <li><a href="{{url_for('site.about')}}">ABOUT US</a></li>
-                <li>PORTAL</li>
-                <li>EVENTS</li>
-                <li>GALLERY</li>
+                <li><a href="{{url_for('site.newspage')}}">EVENTS</a></li>
                 <li><a href="{{url_for('site.admin')}}">ADMIN</a></li>
             </ul>
-        </div>
+        </div>-->
 
         <nav class="nav-bar">
             <nav class="sub-nav-bar">
@@ -37,16 +35,13 @@
                 </ul>
                 <ul class="menubar">
                     <a class="menulink" href="{{url_for('site.about')}}">
-                        <li>About Us</li>
+                        <li>ABOUT US</li>
                     </a>
                     <a class="menulink" href="{{url_for('site.admin')}}">
-                        <li>Portal</li>
+                        <li>ADMIN</li>
                     </a>
-                    <a class="menulink">
-                        <li>Events</li>
-                    </a>
-                    <a class="menulink">
-                        <li>Gallery</li>
+                    <a class="menulink"  href="{{url_for('site.newspage')}}">
+                        <li>EVENTS</li>
                     </a>
                 </ul>
                 <div class="spinner-master">
@@ -126,11 +121,11 @@
                 <p class="sub-footer-text">Subscribe to our newsletter so you don't miss out on any of our events!</p>
                 <div class="input-icon-wrap">
                     <span class="input-icon"><span class="far fa-user"></span></span>
-                    <input type="text" class="input-with-icon" name="name" id="form-name" placeholder="Enter your name">
+                    <input type="text" class="input-with-icon" name="name"  placeholder="Enter your name">
                 </div>
                 <div class="input-icon-wrap">
                     <span class="input-icon"><span class="far fa-paper-plane"></span></span>
-                    <input type="text" class="input-with-icon" name="email" id="form-name"
+                    <input type="text" class="input-with-icon" name="email"
                         placeholder="Enter your email address">
                 </div>
                 <button type="submit" class="submitBtn">Submit</button>

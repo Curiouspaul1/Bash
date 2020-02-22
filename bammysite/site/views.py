@@ -96,7 +96,7 @@ def register():
 		# Student object
 		student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
 
-		pay_cred = request.form['payment-cred']
+		pay_cred = request.form["payment-cred"]
 		if 'file' not in request.files:
 			return redirect(url_for('site.register'))
 		if pay_cred.filename == '':
@@ -109,6 +109,8 @@ def register():
 
 			db.session.add_all([parent,student,sibling])
 			db.commit()
+			array = [sibling_schema(sibling),student_schema(student),parent_schema(parent)]
+			current_app.logger.info(array)
 
 	"""	PBFPubKey = "FLWPUBK_TEST-a8dfe7089beab0ea37afb880ccb4dfe4-X"
 		txref = refgen(''.join([i for i in 'Bammy2020#']))
@@ -121,7 +123,6 @@ def register():
 		response.text
 		current_app.logger.info(response.status_code)
 		current_app.logger.info(response.json()['data']['link'])
-
 		return redirect(response.json()['data']['link'])"""
 
 	return render_template('register_index.html')
@@ -237,6 +238,7 @@ def add_news():
 	from .forms import NewsForm
 	form = NewsForm()
 	if request.method == 'POST':
+		
 		"""current_app.config['UPLOADED_IMAGES_DEST'] = os.getcwd()+"\\bammysite\\static\\uploads"
 		headline = request.form['news_headline']
 		info = request.form['story-info']

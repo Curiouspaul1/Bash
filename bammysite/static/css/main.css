@@ -267,7 +267,8 @@ body {
 
 .news-container {
     height: auto;
-    width: 100%;
+    margin:0 auto;
+    width: 95%;
     box-sizing: border-box;
     padding: 15px;
     display: grid;
@@ -298,8 +299,8 @@ body {
 }
 
 .news-image {
-    max-width: 100%;
-
+    max-width: 10em;
+    margin:0 !important;
 }
 
 .Readmore {
