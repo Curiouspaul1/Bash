@@ -1,7 +1,20 @@
 let current_page = 1;
 let records_per_page = 5;
 const mainNewsContainer = document.querySelector('.news-section');
+const menu = document.querySelector('.menu');
+//const navHidden = document.querySelector(".nav-overlay");
+const back = document.querySelector(".backBtn");
+//const hamburger = document.querySelector('.hidden-menu');
+const mobileNav = document.querySelector('.menubar');
+const news_container = document.getElementById('news-container');
+const navHidden = document.querySelector(".mobile-nav")
+const hamburger = document.querySelector('#spinner-form');
 
+const menuSan = () => {
+    navHidden.classList.toggle("nav-out")
+}
+
+hamburger.addEventListener("click", menuSan);
 
 fetch('/news')
 .then((req) => {

@@ -31,28 +31,22 @@
 	                <li class="logo-container"><img class="logo" src="{{url_for('static',filename='img/BAMMY LOGO.jpg')}}" alt="school-logo"></li>
 	            </ul>
 	            <div class="nav-overlay">
-	                
 	                <ul>
-	                <li class="backBtn">BACK</li>
-	                <li class="active">HOME</li>
-	                <!--<li><a href="about">ABOUT US</a></li>-->
-	                <li><a href="admin">PORTAL</a></li>
-	                <li>EVENTS</li>
-	                <li>GALLERY</li>
-	                <li><a href="{{'site.admin'}}">ADMIN</a></li> 
-	            </ul>
+						<li class="backBtn">BACK</li>
+						<li class="active">HOME</li>
+						<li><a href="{{url_for('site.admin')}}">ADMIN</a></li>
+						<li><a href="{{url_for('site.newspage')}}">EVENTS</a></li>
+	            	</ul>
 	             </div>
 	            <ul class="nav-menu">
-	                <li><a href="index">Home</a></li>
-	                <!--<li><a href="about">About</a></li>-->
-	                <li><a href="admin">Portal</a></li>
-	                <li><a href="/">Events</a></li>
-	                <li><a href="/">Gallery</a></li>
+	                <li><a href="{{url_for('site.index')}}">HOME</a></li>
+	                <li><a href="{{url_for('site.admin')}}">ADMIN</a></li>
+	                <li><a href="{{url_for('site.newspage')}}">EVENTS</a></li>
 	            </ul>
 	            <div class="hidden-menu menu">
 	                <span></span>
 	                <span></span>
-	                <span></span>
+					<span></span>
 	             </div>
 	    </nav>
 
