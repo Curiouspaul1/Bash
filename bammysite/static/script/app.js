@@ -1,10 +1,18 @@
 const menu = document.querySelector('.menu');
-const navHidden = document.querySelector(".nav-overlay");
+//const navHidden = document.querySelector(".nav-overlay");
 const back = document.querySelector(".backBtn");
-const hamburger = document.querySelector('.hidden-menu');
+//const hamburger = document.querySelector('.hidden-menu');
 const mobileNav = document.querySelector('.menubar');
 const news_container = document.getElementById('news-container');
+const navHidden = document.querySelector(".mobile-nav")
+const hamburger = document.querySelector('#spinner-form');
+
 const menuSan = () => {
+    navHidden.classList.toggle("nav-out")
+}
+
+hamburger.addEventListener("click", menuSan);
+/*const menuSan = () => {
     // console.log("menuuuuu")
     navHidden.classList.add("show")
 }
@@ -22,7 +30,7 @@ hamburger.addEventListener('click', () => {
  })
 
 back.addEventListener("click", backSan)
-
+*/
 
 // latest news
 
