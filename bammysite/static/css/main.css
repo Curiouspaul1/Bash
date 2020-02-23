@@ -228,7 +228,7 @@ body {
     width: 100%;
     height: 50vh;
     box-sizing: border-box;
-    background-image: url("/img/DSC_0538.JPG") !important;
+    background-image: url("../img/DSC_0538.JPG") !important;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -289,7 +289,8 @@ body {
 }
 
 .news {
-    width: 65%;
+    max-width: 65%;
+    width:auto;
     line-height: 1.5;
     color: #679436;
     border: 1px solid #679436;
@@ -297,8 +298,8 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: left;
     padding: 20px;
-    height: 100vh;
-
+    max-height: 75vh;
+    height: auto;
 }
 
 .news-header {
@@ -310,8 +311,10 @@ body {
 }
 
 .news-image {
-    max-width: 100%;
-
+    max-width: 70%;
+    margin: 0%;
+    border-radius: 10%;
+    margin-left: 10%;
 }
 
 .Readmore {

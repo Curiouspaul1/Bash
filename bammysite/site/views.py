@@ -253,7 +253,7 @@ def add_news():
 		news = News(title=headline,body=info)
 """
 		headline = request.form['news_headline']
-		info = request.form['story-info']
+		info = request.form['news_body']
 		image = request.files['image']
 		filename = secure_filename(image.filename)
 		#image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],filename))
