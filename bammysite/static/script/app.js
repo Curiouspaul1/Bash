@@ -1,8 +1,3 @@
-const menu = document.querySelector('.menu');
-//const navHidden = document.querySelector(".nav-overlay");
-const back = document.querySelector(".backBtn");
-//const hamburger = document.querySelector('.hidden-menu');
-const mobileNav = document.querySelector('.menubar');
 const news_container = document.getElementById('news-container');
 const navHidden = document.querySelector(".mobile-nav")
 const hamburger = document.querySelector('#spinner-form');
@@ -12,26 +7,6 @@ const menuSan = () => {
 }
 
 hamburger.addEventListener("click", menuSan);
-/*const menuSan = () => {
-    // console.log("menuuuuu")
-    navHidden.classList.add("show")
-}
-
-menu.addEventListener("click", menuSan);
-
-
-const backSan = () => {
-    // console.log("backkkk")
-    navHidden.classList.remove("show")
-}
-
-hamburger.addEventListener('click', () => {
-
- })
-
-back.addEventListener("click", backSan)
-*/
-
 // latest news
 
 
@@ -62,6 +37,8 @@ fetch('/feeds')
         let news_body = document.createElement('p');
         news_body.innerHTML = res.body;
         let readmore = document.createElement('a');
+        readmore.innerHTML = 'Read_more'
+        news_body.innerHTML = news_body.innerHTML.substr(0, 200).replace('/\w*$/,')+'....' + readmore;
         news_body.appendChild(readmore);
         news_imgContainer.appendChild(news_img);
         mob_view.appendChild(news_imgContainer);

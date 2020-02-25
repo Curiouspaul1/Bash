@@ -32,17 +32,14 @@
                     </a>
                 </ul>
                 <ul class="menubar">
-                    <a class="menulink" href="about.html">
+                    <a class="menulink" href="{{url_for('site.about')}}">
                         <li>About Us</li>
                     </a>
-                    <a class="menulink">
+                    <a class="menulink" href="{{url_for('site.admin')}}">
                         <li>Portal</li>
                     </a>
-                    <a class="menulink">
+                    <a class="menulink" href="{{url_for('site.newspage')}}">
                         <li>Events</li>
-                    </a>
-                    <a class="menulink">
-                        <li>Gallery</li>
                     </a>
                     <a href="./admin_login.html" class="menulink">
                         <li>Admin</li>

@@ -67,3 +67,5 @@ photosDiv.addEventListener("click", (e) => {
         e.target.parentNode.parentNode.removeChild(e.target.parentNode)
     }
 })
+
+

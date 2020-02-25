@@ -87,15 +87,6 @@ def register():
 		s_class = request.form['s_class']
 		s_year = request.form['s_year']
 
-		# Sibling object
-		sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
-
-		# create parent object
-		parent = Parent(pname=pname,raddress=raddress,occupation=occ,oaddress=oaddress,tel=tel,email=email,family=family,etel=etel)
-
-		# Student object
-		student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
-
 		pay_cred = request.form["payment-cred"]
 		if 'file' not in request.files:
 			return redirect(url_for('site.register'))
@@ -112,18 +103,14 @@ def register():
 			array = [sibling_schema(sibling),student_schema(student),parent_schema(parent)]
 			current_app.logger.info(array)
 
-	"""	PBFPubKey = "FLWPUBK_TEST-a8dfe7089beab0ea37afb880ccb4dfe4-X"
-		txref = refgen(''.join([i for i in 'Bammy2020#']))
-		customer_email = email
-		customer_phone = tel
-		amount = 2000
+		# Sibling object
+		sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
 
-		response = requests.post("https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay",data={'customer_phone':tel,'customer_email':email,'amount':amount,'txref':txref,'PBFPubKey':PBFPubKey})
-		response.encoding = 'utf-8'
-		response.text
-		current_app.logger.info(response.status_code)
-		current_app.logger.info(response.json()['data']['link'])
-		return redirect(response.json()['data']['link'])"""
+		# create parent object
+		parent = Parent(pname=pname,raddress=raddress,occupation=occ,oaddress=oaddress,tel=tel,email=email,family=family,etel=etel)
+
+		# Student object
+		student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
 
 	return render_template('register_index.html')
 
@@ -269,7 +256,7 @@ def add_news():
 		news = News.query.filter_by(title=headline).first()
 		if news != None:
 			msg = 'News created successfully!'
-			return render_template('admin_main.html',msg=msg,form=form)
+		return render_template('admin_main.html',msg=msg,form=form)
 
 	return render_template('admin_main.html',form=form)
 
