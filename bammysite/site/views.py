@@ -64,6 +64,7 @@ def register():
 		email = request.form['email']
 		family = request.form['family']
 		etel = request.form['Etel']
+		occ = request.form['occupation']
 		siblings = request.form['siblings']
 		
 		# fetch student data
@@ -80,14 +81,13 @@ def register():
 		year = request.form['year']
 		sex = request.form['sex']
 		ail = request.form['ail']
-		occ = request.form['occupation']
 
 		# fetch sibling data
 		s_name = request.form['s_name']
 		s_class = request.form['s_class']
 		s_year = request.form['s_year']
 
-		pay_cred = request.form["payment-cred"]
+		pay_cred = request.files["payment-cred"]
 		if 'file' not in request.files:
 			return redirect(url_for('site.register'))
 		if pay_cred.filename == '':
@@ -98,19 +98,38 @@ def register():
 			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],'payments'+filename))
 			news = News(title=headline,body=info,img_data=image.filename)
 
+			# Sibling object
+			sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
+
+			# create parent object
+			parent = Parent(pname=pname,raddress=raddress,occupation=occ,oaddress=oaddress,tel=tel,email=email,family=family,etel=etel)
+
+			# Student object
+			student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
+
 			db.session.add_all([parent,student,sibling])
 			db.commit()
-			array = [sibling_schema(sibling),student_schema(student),parent_schema(parent)]
-			current_app.logger.info(array)
 
-		# Sibling object
-		sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
+			data = {
+				"Parent":[],
+				"Student":[],
+				"Siblings":[]
+			}
 
-		# create parent object
-		parent = Parent(pname=pname,raddress=raddress,occupation=occ,oaddress=oaddress,tel=tel,email=email,family=family,etel=etel)
+			data['Parent'].append({
+				parent_schema.dumps(parent)
+			})
 
-		# Student object
-		student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
+			data['Student'].append({
+				student_schema.dumps(student)
+			})
+
+			data['Siblings'].append({
+				sibling_schema.dumps(sibling)
+			})
+
+			with open('data.json','w') as outfile:
+				json.dump(array,outfile)
 
 	return render_template('register_index.html')
 

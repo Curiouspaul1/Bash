@@ -317,7 +317,7 @@ footer{
     padding: 1rem;
     color: #e7e5e5;
     background: rgba(0, 0, 0, 0.774);
-    height: 20vh;
+    height: 25vh;
 }
 
 @media(min-width:48rem){

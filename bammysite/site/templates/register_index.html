@@ -16,10 +16,9 @@
         <nav class="navbar">
             <a id="logo" href="index"><img src="{{url_for('static',filename='img/bammyLogo_register.jpg')}}" alt="Home"></a>
             <ul >
-                <a href="about"><li>About Us</li></a>
-                <a href="admin"><li>Portal</li></a>
-                <a><li>Events</li></a>
-                <a><li>Gallery</li></a>
+                <a href="{{url_for('site.about')}}"><li>About Us</li></a>
+                <a href="{{url_for('site.admin')}}"><li>Portal</li></a>
+                <a href="{{url_for('site.newspage')}}"><li>Events</li></a>
             </ul>
             <div class="hidden-menu menu">
                 <span></span>
@@ -31,10 +30,9 @@
         <div id="mobile-nav">
             <ul>
                 <a id="back-btn"><li>Back to page</li></a>
-                <a href="about"><li>About Us</li></a>
-                <a href="admin"><li>Portal</li></a>
-                <a><li>Events</li></a>
-                <a><li>Gallery</li></a>
+                <a href="{{url_for('site.about')}}"><li>About Us</li></a>
+                <a href="{{url_for('site.admin')}}"><li>Portal</li></a>
+                <a href="{{url_for('site.newspage')}}"><li>Events</li></a>
             </ul>
         </div>
     </header>
