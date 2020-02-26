@@ -96,7 +96,6 @@ def register():
 		if pay_cred and allowed_file(pay_cred.filename):
 			filename = secure_filename(image.filename)
 			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],'payments'+filename))
-			news = News(title=headline,body=info,img_data=image.filename)
 
 			# Sibling object
 			sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
@@ -109,27 +108,6 @@ def register():
 
 			db.session.add_all([parent,student,sibling])
 			db.commit()
-
-			data = {
-				"Parent":[],
-				"Student":[],
-				"Siblings":[]
-			}
-
-			data['Parent'].append({
-				parent_schema.dumps(parent)
-			})
-
-			data['Student'].append({
-				student_schema.dumps(student)
-			})
-
-			data['Siblings'].append({
-				sibling_schema.dumps(sibling)
-			})
-
-			with open('data.json','w') as outfile:
-				json.dump(array,outfile)
 
 	return render_template('register_index.html')
 
@@ -292,6 +270,12 @@ def about():
 @sitemod.route('/newspage',methods=['GET','POST'])
 def newspage():
 	title='Events'
+	data = {
+		"Parent":[],
+		"Student":[],
+		"Siblings":[]
+	}
+	print(data)
 	return render_template('newspage.html',title=title)
 
 
