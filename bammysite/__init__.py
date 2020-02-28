@@ -12,7 +12,7 @@ from flask_cors import CORS
 from flask_jsglue import JSGlue
 from config import config
 import os
-import logging
+#import logging
 
 db = SQLAlchemy()
 ma = Marshmallow()
@@ -32,7 +32,7 @@ def __call__(config_name):
     ckeditor.init_app(app)
     jsglue.init_app(app)
     CORS(app)
-    logging.basicConfig(level=logging.DEBUG)
+    #logging.basicConfig(level=logging.DEBUG)
     """if app.config['SSL_REDIRECT']:
        from flask_sslify import SSLify
        sslify = SSLify(app)"""
