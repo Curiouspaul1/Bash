@@ -276,6 +276,7 @@ section#principal {
 }
 .principal-image {
     width: 450px;
+    max-height: 350px;
     border-radius: 5px 100px 60px 250px;
 }
 
