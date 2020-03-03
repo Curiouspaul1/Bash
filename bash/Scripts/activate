@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='C:\Users\CuriousPaul\Documents\Bash\bash'
+VIRTUAL_ENV='C:\Users\ibrahim\Desktop\bash\bash'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
