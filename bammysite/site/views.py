@@ -64,8 +64,8 @@ def register():
 		email = request.form['email']
 		family = request.form['family']
 		etel = request.form['Etel']
-		occ = request.form['occupation']
 		siblings = request.form['siblings']
+		occ = request.form['occupation']
 		
 		# fetch student data
 		sname = request.form['sname']
@@ -88,15 +88,9 @@ def register():
 		s_year = request.form['s_year']
 
 		pay_cred = request.files["payment-cred"]
-		if 'file' not in request.files:
-			return redirect(url_for('site.register'))
-		if pay_cred.filename == '':
-			error = 'No file selected'
-			return render_template('register_index.html',error=error)
-		if pay_cred and allowed_file(pay_cred.filename):
-			filename = secure_filename(image.filename)
-			image.save(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],'payments'+filename))
-
+		if pay_cred and pay_cred.filename != '' and allowed_file(pay_cred.filename):
+			filename = secure_filename(pay_cred.filename)
+			pay_cred.save(os.path.abspath(os.path.join(current_app.config['UPLOADED_IMAGES_DEST'],'payments'+filename)))
 			# Sibling object
 			sibling = Siblings(s_name=s_name,s_class_=s_class,s_year=s_year)
 
@@ -107,7 +101,10 @@ def register():
 			student = Student(sname=sname,dob=dob,bg=bg,bp=bp,state=state,gen=gen,lga=lga,sex=sex,ail=ail,school=school,school_address=school_address,class_=class_,year=year)
 
 			db.session.add_all([parent,student,sibling])
-			db.commit()
+			db.session.commit()
+		else:
+			error = "No payment-cred selected"
+			render_template('register_index.html',error=error)
 
 	return render_template('register_index.html')
 
