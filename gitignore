@@ -1,3 +1,4 @@
 migrations/
 bash/
 config.cfg
+*heroku
