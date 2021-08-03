@@ -4,3 +4,4 @@ config.cfg
 *.cfg
 *__pycache__/
 .vscode/
+env/
