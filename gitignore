@@ -1,4 +1,6 @@
-migrations/
 bash/
 config.cfg
 *heroku
+*.cfg
+*__pycache__/
+.vscode/

@@ -126,6 +126,18 @@ main{
     border-bottom: 2px solid #679436;
 }
 
+#mask-admin {
+    padding: 2% 5%;
+    position: fixed;
+    width: 100vw;
+    /* height: 100vh; */
+    z-index: 25;
+    color:#54772e;
+    font-size: x-large;
+    font-weight: 500;
+    background: #f6f6f694;
+}
+
 .new-story__photo{
     margin-bottom: 0;
     background: #54772e;

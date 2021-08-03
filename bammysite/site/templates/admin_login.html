@@ -20,13 +20,13 @@
                 <a href="about"><li>About Us</li></a>
                 <!--<a href="admin"><li>Portal</li></a>-->
                 <a><li>Events</li></a>
-                <a><li>Gallery</li></a>
+                <!-- <a href=""><li>Gallery</li></a> -->
             </ul>
             <!-- <a class="hamburger">
                 <img src="./img/hamburger.png" alt="hamburger">
             </a> -->
         </nav>
-        <div id="mask"></div>
+        
         <nav class="sub-nav-bar">
             <!-- <ul>
                 <a id="logo" href="index.html">
@@ -51,6 +51,11 @@
           
     </header>
     <main>
+        {% if error %}
+        <div id="mask-admin">
+            {{error}}
+        </div>
+        {% endif %}
         <section class="container">
             <img id="admin-logo" src="{{url_for('static',filename='img/website.png')}}">
             <h3 id="admin-text">Bammy's Information Management System</h3>

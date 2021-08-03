@@ -44,9 +44,6 @@ def feeds():
 @sitemod.route('/')
 @sitemod.route('/index',methods=['GET','POST'])
 def index():
-	news = News.query.all()
-	t_stamp = [i.date_created for i in news]
-	t_stamp = sorted(t_stamp,key=lambda item:item, reverse=True)
 	return render_template('index.html')
 
 # application
@@ -123,9 +120,11 @@ def admin_login():
 				return redirect(url_for('site.admin'))
 			else:
 				error='Password incorrect - forgot password?'
-				return render_template('admin_login.html')
+				print(error)
+				return render_template('admin_login.html', error=error)
 		else:
 			error = 'No user with that email was found'
+			print(error)
 			return render_template('admin_login.html',error=error)
 
 	return render_template('admin_login.html')
@@ -156,7 +155,7 @@ def send_newsletter():
 		users = subscriber.query.all()
 		recipients = [user.sub_email for user in users]
 		subject = request.form['newsletter__title']
-		news_body = request.form['newsletter-content']
+		news_body = request.form.get('news_body')
 		with mail.connect() as conn:
 			for user in users:
 				msg = Message(subject=subject,sender=current_app.config['MAIL_DEFAULT_SENDER'],recipients=recipients)
@@ -186,11 +185,11 @@ def admin_signup():
 @sitemod.route('/news_signup',methods=['GET','POST'])
 def news_signup():
 	if request.method == 'POST':
+		# print("YES! POST")
 		name = request.form['name']
 		email = request.form['email']
 		new_subscriber = subscriber(sub_name=name,sub_email=email)
 		db.session.add(new_subscriber)
-		db.session.commit()
 
 		# find parent with same details
 		user = Parent.query.filter_by(email=email).first()
@@ -201,12 +200,13 @@ def news_signup():
 			try:
 				user = Parent.query.filter_by(pname=name).first()
 				new_subscriber.parentid = user.id
+				db.session.commit()
 			except AttributeError:
-				pass
+				db.session.commit()
 
 		msg = "Congrats you've successfully registered on our mailing list"
-
-		return render_template('index.html')
+		return render_template('index.html', msg=msg)
+	print("NOT POST")
 	return render_template('index.html')
 
 # config for uploads

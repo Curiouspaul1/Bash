@@ -25,7 +25,11 @@
                 <li><a href="{{url_for('site.admin')}}">ADMIN</a></li>
             </ul>
         </div>
-        <div id="mask"></div>
+        {% if msg %}
+        <div id="mask">
+            {{msg}}
+        </div>
+        {% endif %}
         <nav class="nav-bar">
             <nav class="sub-nav-bar">
                 <ul>
@@ -117,18 +121,20 @@
         </div>
         <div class="sub-footer2">
             <div class="sub-footer2-container">
-                <h2>Stay In Touch</h2>
-                <p class="sub-footer-text">Subscribe to our newsletter so you don't miss out on any of our events!</p>
-                <div class="input-icon-wrap">
-                    <span class="input-icon"><span class="far fa-user"></span></span>
-                    <input type="text" class="input-with-icon" name="name"  placeholder="Enter your name">
-                </div>
-                <div class="input-icon-wrap">
-                    <span class="input-icon"><span class="far fa-paper-plane"></span></span>
-                    <input type="text" class="input-with-icon" name="email"
-                        placeholder="Enter your email address">
-                </div>
-                <button type="submit" class="submitBtn">Submit</button>
+                <form action="news_signup" method="POST">
+                    <h2>Stay In Touch</h2>
+                    <p class="sub-footer-text">Subscribe to our newsletter so you don't miss out on any of our events!</p>
+                    <div class="input-icon-wrap">
+                        <span class="input-icon"><span class="far fa-user"></span></span>
+                        <input type="text" class="input-with-icon" name="name"  placeholder="Enter your name">
+                    </div>
+                    <div class="input-icon-wrap">
+                        <span class="input-icon"><span class="far fa-paper-plane"></span></span>
+                        <input type="text" class="input-with-icon" name="email"
+                            placeholder="Enter your email address">
+                    </div>
+                    <button type="submit" class="submitBtn">Submit</button>
+                </form>
             </div>
         </div>
         <div class="social-media-nav">

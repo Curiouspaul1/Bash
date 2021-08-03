@@ -22,29 +22,27 @@ ckeditor = CKEditor()
 jsglue = JSGlue()
 
 def __call__(config_name):
-    app = Flask(__name__)
-    app.config.from_object(config[config_name])
-    config[config_name].init_app(app)
-    
-    db.init_app(app)
-    ma.init_app(app)
-    mail.init_app(app)
-    ckeditor.init_app(app)
-    jsglue.init_app(app)
-    CORS(app)
-    #logging.basicConfig(level=logging.DEBUG)
-    """if app.config['SSL_REDIRECT']:
-       from flask_sslify import SSLify
-       sslify = SSLify(app)"""
+   app = Flask(__name__)
+   app.config.from_object(config[config_name])
+   config[config_name].init_app(app)
 
-    # configure image set with app
-    #configure_uploads(app,images)
-    
-    # register blueprint
-    from bammysite.site import sitemod
+   db.init_app(app)
+   ma.init_app(app)
+   mail.init_app(app)
+   ckeditor.init_app(app)
+   jsglue.init_app(app)
+   CORS(app)
+   #logging.basicConfig(level=logging.DEBUG)
+   """if app.config['SSL_REDIRECT']:
+      from flask_sslify import SSLify
+      sslify = SSLify(app)"""
 
-    app.register_blueprint(sitemod)
+   # configure image set with app
+   #configure_uploads(app,images)
+   
+   # register blueprint
+   from bammysite.site import sitemod
 
-    app.secret_key = os.urandom(24)
+   app.register_blueprint(sitemod)
 
-    return app
+   return app
