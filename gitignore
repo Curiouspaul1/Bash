@@ -1,7 +1,8 @@
 bash/
-config.cfg
 *heroku
 *.cfg
 *__pycache__/
 .vscode/
 env/
+.env
+*.sqlite3
